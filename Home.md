@@ -10,9 +10,9 @@ Feel free to contribute to this wiki if you have useful informations you'd like 
 ## Settings
 
 * Livestreamer setup
-* Player configuration
+* [[Player configuration|player-configuration]]
 
 ## Developing
 
 * Building the application
-* Planned features
+* [[Planned features|planned-features]]
