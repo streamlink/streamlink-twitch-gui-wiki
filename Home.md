@@ -1,16 +1,15 @@
-Welcome to the wiki!  
-Here you can find a list of how-to's and informations regarding the usage of [Livestreamer Twitch GUI](https://github.com/bastimeyer/livestreamer-twitch-gui) and [Livestreamer](https://github.com/chrippa/livestreamer).  
-Feel free to contribute to this wiki if you have useful informations you'd like to share with other users.
+Welcome to the [Livestreamer Twitch GUI](https://github.com/bastimeyer/livestreamer-twitch-gui) wiki!  
+Feel free to contribute if you have useful informations you'd like to share with other users.
+
+## Setup
+
+* [[Installation|installation]]
+* [[Player configuration|player-configuration]]
 
 ## Usage
 
 * Watching streams
 * Twitch.tv login
-
-## Settings
-
-* Livestreamer setup
-* [[Player configuration|player-configuration]]
 
 ## Developing
 
