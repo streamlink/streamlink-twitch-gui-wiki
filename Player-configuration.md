@@ -21,7 +21,7 @@ Players can be started with custom parameters. This is useful if you'd like to c
 
 - **Custom player window title**  
   `--meta-title "{name} - {game} - {status}"`  
-  See the dropdown in the GUI settings (blue button) for all available variables and make sure to use parenthesis.
+  See the dropdown in the GUI settings (blue button) for all available variables and make sure to use quotation marks.
 
 - **Minimal UI**  
   `--qt-minimal-view`  
@@ -33,7 +33,7 @@ Players can be started with custom parameters. This is useful if you'd like to c
 
 - **Custom player window title**  
   `--title "{name} - {game} - {status}"`  
-  See the dropdown in the GUI settings (blue button) for all available variables and make sure to use parenthesis.
+  See the dropdown in the GUI settings (blue button) for all available variables and make sure to use quotation marks.
 
 - **No additional stream caching**  
   `--no-cache`  
