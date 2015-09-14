@@ -6,7 +6,10 @@
 *Don't* install Livestreamer via [pip](https://pip.pypa.io/en/stable/), download the installer from the [Livestreamer releases page](https://github.com/chrippa/livestreamer/releases) instead.
 
 **Linux**  
-If you are using the Debian package of Livestreamer, please make sure that at least version `1.12.2` is installed, or else you will be seeing [this error message](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/78).
+If you are using the Debian package of Livestreamer, please make sure that at least version `1.12.2` is installed, or else you will be seeing [this error message](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/78).  
+
+*Gnome desktop environment*  
+Please make sure that the `wmctrl` package is installed on your system to be able to get rid of the "Unknown" application name bug in the panel. See [#136](https://github.com/bastimeyer/livestreamer-twitch-gui/pull/136).
 
 **OSX / Linux**  
 OSX and many Linux distributions come with Python being preinstalled. Since early 2015, Livestreamer and its libraries require a Python version greater than `2.7.6`. See issue [#69](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/69) / [#90](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/90) if you're getting the `InsecurePlatformWarning: A true SSLContext object is not available` message.
