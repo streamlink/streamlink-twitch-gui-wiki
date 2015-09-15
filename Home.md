@@ -9,7 +9,7 @@ Feel free to contribute if you have useful informations you'd like to share with
 
 ## Usage
 
-* Watching streams
+* [[Watching streams|watching-streams]]
 * Twitch.tv login
 
 ## Developing
