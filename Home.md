@@ -14,5 +14,5 @@ Feel free to contribute if you have useful informations you'd like to share with
 
 ## Developing
 
-* Building the application
+* [Building the application](https://github.com/bastimeyer/livestreamer-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building)
 * [[Planned features|planned-features]]
