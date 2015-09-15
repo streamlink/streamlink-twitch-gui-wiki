@@ -4,6 +4,7 @@ Feel free to contribute if you have useful informations you'd like to share with
 ## Setup
 
 * [[Installation|installation]]
+* [[Livestreamer configuration|livestreamer-configuration]]
 * [[Player configuration|player-configuration]]
 
 ## Usage
