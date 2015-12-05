@@ -1,3 +1,6 @@
+- **--max**  
+  Maximize the application window after launch.
+
 - **--min**  
   Minimize the application window after launch.
 
