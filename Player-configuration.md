@@ -39,6 +39,10 @@ Players can be started with custom parameters. This is useful if you'd like to c
   `--no-cache`  
   Livestreamer does all the caching (unless `--player-passthrough` is set to HLS), so we can reduce the stream delay.
 
+- **Fix potential issue with "Audio only" streams**  
+  `--force-window`  
+  If you're using the `--player-passthrough=HLS` livestreamer parameter, you need to set this player parameter as well, or else you'll need to kill the MPV process by yourself, since Livestreamer won't do it when closing the stream via the GUI.
+
 
 ### [Media Player Classic - Home Cinema](https://mpc-hc.org/)
 *MPC-HC is an extremely light-weight, open source media player for Windows.*
