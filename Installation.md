@@ -45,12 +45,12 @@ See the AUR package [`livestreamer-twitch-gui`](https://aur.archlinux.org/packag
 #### Debian, Ubuntu, Mint
 
 Please make sure to install the `x11-utils` and `xdg-utils` packages.  
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts and application icons and `start.sh` for launching the application.
+After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts / application icons and run `start.sh` for launching the application.
 
 #### Fedora
 
 Please make sure to install the `xorg-x11-utils` and `xdg-utils` packages.  
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts and application icons and `start.sh` for launching the application.
+After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts /  application icons and run `start.sh` for launching the application.
 
 ### OSX
 
