@@ -12,6 +12,6 @@ Go to the settings menu to filter out certain languages. You can choose between 
 This will dim out streams not matching your language selection. This is useful if you still want to load all of the streams in a list, but only highlight the ones you're able to understand.
 
 **Filter out**  
-This will only load streams matching your language selection. This is useful if you don't care about other streams.  
+This will only load streams matching your language selection. This is useful if you don't care about other streams. Please notice the single language selection limitation by Twitch. If you've selected more than one language, filters can not be applied.  
 
-Streams in the followed streams menu won't be dimmed or filtered.
+Streams in the followed streams menu will never be dimmed or filtered.
