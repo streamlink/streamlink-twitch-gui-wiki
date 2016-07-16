@@ -5,10 +5,10 @@ If VLC is not installed on your machine or was installed in a different folder o
 
 ## Player configurations
 
-Players can be started with custom parameters. This is useful if you'd like to control the player behavior or change the title of the window, etc. Make sure to enable the `advanced mode` at the top of the settings menu to be able to set player specific arguments.
+Players can be started with custom parameters. This is useful if you'd like to control the player behavior or change the title of the window, etc. Make sure to enable the `advanced mode` in the main settings menu to be able to set player specific arguments.
 
-**Please read the [`--player-args`](http://docs.livestreamer.io/cli.html#cmdoption-a) parameter documentation first and don't forget to include the `{filename}` variable**.  
-*Custom player parameters do only work if also a custom player is set in the GUI.*
+**Please read the [`--player-args`](http://docs.livestreamer.io/cli.html#cmdoption-a) parameter documentation first. The `{filename}` variable will automatically be appended to the parameters string if it's missing, which should be fine in most cases.**  
+*Custom player parameters do only work if a custom player path is set as well.*
 
 
 ### [VideoLAN Client](https://www.videolan.org/)
