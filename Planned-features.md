@@ -1,14 +1,17 @@
-Wiki page WIP
+These are mainly just ideas for future implementations and no strict goals. The linked issue threads may also not be up to date. Milestones on the Github issue tracker are also not set up for these ideas, but may be in the future.
 
-- **Twitch VODs and highlights**  
-  See [#81](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/81)
+If you have any other ideas or want to help adding those, please [join the chat on Gitter](https://gitter.im/bastimeyer/livestreamer-twitch-gui) or [open a new issue](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/new).
 
-- **Stream/VODs downloads**
-  
+#### Internal IRC client
 
-- **Chat**  
-  See [#9](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/9)
+As an alternative to using third party applications or the web browser.  
+See issue [#9](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/9).
 
+#### Twitch VODs and highlights
 
-- **Multiple themes**  
-  See [#51](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/51)
+Requires a complete rewrite of the stream launch logic, since VODs need to be opened in livestreamer in a different way.  
+See issue [#81](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/81).
+
+#### Stream/VOD downloads
+
+Requires an even larger rewrite, since the stream type selection would need to be changed as well.
