@@ -1,13 +1,17 @@
-*Please notice the difference between __Livestreamer__ and __Livestreamer Twitch GUI__*  
-Below you can find instructions for both applications.
+Please follow the installation instructions for both applications:
+
+- [__Livestreamer__](#livestreamer) (Command Line Interface)  
+- [__Livestreamer Twitch GUI__](#livestreamer-twitch-gui) (Graphical User Interface)
+
+---
 
 ## Livestreamer
 
-[Livestreamer](http://docs.livestreamer.io/install.html) has to be installed on your system in order to be able to launch streams. Please do this first!
+[Livestreamer](http://docs.livestreamer.io/install.html) has to be installed on your system in order to be able to launch streams from the GUI. Please do this first!
 
 ### Windows
 
-*Don't install Livestreamer via [`pip`](https://pip.pypa.io/en/stable/)*, download the **installer** from the [Livestreamer releases page](https://github.com/chrippa/livestreamer/releases) instead. The installer adds a local python environment for livestreamer and also adds the installation directory to your system's `PATH` environment variable, so the GUI is able to automatically find it. There are also some issues on Windows when using Livestreamer via `pip`.
+*Don't install Livestreamer via [`pip`](https://pip.pypa.io/en/stable/)*, **download the installer** from the [Livestreamer releases page](https://github.com/chrippa/livestreamer/releases) instead. The installer adds a local python environment for livestreamer and also adds the installation directory to your system's `PATH` environment variable, so that the GUI is able to automatically find it. Not using the installer [will cause issues](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/264#issuecomment-229381516) when trying to close streams from the GUI.
 
 ### Linux
 
@@ -40,7 +44,8 @@ If you want to help with this issue or want to create and maintain a package tha
 
 #### Arch
 
-See the AUR package [`livestreamer-twitch-gui`](https://aur.archlinux.org/packages/livestreamer-twitch-gui/).
+See the AUR default package [`livestreamer-twitch-gui`](https://aur.archlinux.org/packages/livestreamer-twitch-gui/)  
+or the AUR git package [`livestreamer-twitch-gui-git`](https://aur.archlinux.org/packages/livestreamer-twitch-gui-git/).
 
 #### Debian, Ubuntu, Mint
 
