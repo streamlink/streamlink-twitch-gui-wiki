@@ -27,36 +27,44 @@ OSX and many Linux distributions come with Python being preinstalled. Since earl
 
 ## Livestreamer Twitch GUI
 
+### Packages
+
+#### Chocolatey (Windows)
+
+[`choco install livestreamer-twitch-gui`](https://chocolatey.org/packages/livestreamer-twitch-gui)
+
+#### AUR (Arch Linux)
+
+[`yaourt -S livestreamer-twitch-gui`](https://aur.archlinux.org/packages/livestreamer-twitch-gui/)  
+[`yaourt -S livestreamer-twitch-gui-git`](https://aur.archlinux.org/packages/livestreamer-twitch-gui-git/)
+
+#### Homebrew Cask (OSX)
+
+[`brew cask install livestreamer-twitch-gui`](https://caskroom.github.io/)
+
+### Custom installation
+
 Archives with prebuilt binaries of the [latest release](https://github.com/bastimeyer/livestreamer-twitch-gui/releases) are available for Windows, OSX and Linux on the releases page of the repository on Github. Download the archive that fits the architecture of your CPU and operating system. If you don't know, choose the `x32` one, although you will most likely be using the x64 architecture.
 
-### Windows
+#### Windows
 
 Simply extract the archive to a folder of your choice and run `livestreamer-twitch-gui.exe` or create a shortcut to your desktop, taskbar or startmenu.
 
-#### Chocolatey
+#### Linux
 
-See the chocolatey package [`livestreamer-twitch-gui`](https://chocolatey.org/packages/livestreamer-twitch-gui).
-
-### Linux
+After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts /  application icons and run `start.sh` for launching the application.
 
 Sadly, there are no `deb` or `rpm` packages available yet. This has different reasons and will hopefully be resolved soon.  
 If you want to help with this issue or want to create and maintain a package that is not yet available for your package manager, please open an issue ticket and let me know. Your help will be very much appreciated!
 
-#### Arch
+**Debian, Ubuntu, Mint**
 
-See the AUR default package [`livestreamer-twitch-gui`](https://aur.archlinux.org/packages/livestreamer-twitch-gui/)  
-or the AUR git package [`livestreamer-twitch-gui-git`](https://aur.archlinux.org/packages/livestreamer-twitch-gui-git/).
+Additional dependencies: `x11-utils` and `xdg-utils`.
 
-#### Debian, Ubuntu, Mint
+**Fedora**
 
-Please make sure to install the `x11-utils` and `xdg-utils` packages.  
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts / application icons and run `start.sh` for launching the application.
+Additional dependencies: `xorg-x11-utils` and `xdg-utils`.
 
-#### Fedora
-
-Please make sure to install the `xorg-x11-utils` and `xdg-utils` packages.  
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts /  application icons and run `start.sh` for launching the application.
-
-### OSX
+#### OSX
 
 In order to have the application listed in the launchpad, extract the archive to `/Applications` or `$HOME/Applications`.
