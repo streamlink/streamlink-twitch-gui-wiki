@@ -6,6 +6,7 @@ Feel free to contribute if you have useful informations you'd like to share with
 * [[Installation|installation]]
 * [[Livestreamer configuration|livestreamer-configuration]]
 * [[Player configuration|player-configuration]]
+* [[Chat configuration|chat-configuration]]
 
 ## Usage
 
