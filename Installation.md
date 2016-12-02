@@ -1,70 +1,82 @@
 Please follow the installation instructions for both applications:
 
-- [__Livestreamer__](#livestreamer) (Command Line Interface)  
-- [__Livestreamer Twitch GUI__](#livestreamer-twitch-gui) (Graphical User Interface)
+- [**Streamlink**](#streamlink) (Command Line Interface)  
+- [**Streamlink Twitch GUI**](#streamlink-twitch-gui) (Graphical User Interface)
 
 ---
 
-## Livestreamer
+## Streamlink
 
-[Livestreamer](http://docs.livestreamer.io/install.html) has to be installed on your system in order to be able to launch streams from the GUI. Please do this first!
+[Streamlink][streamlink-install] has to be installed on your system in order to be able to launch streams from the GUI. Please do this first!
 
 ### Windows
 
-*Don't install Livestreamer via [`pip`](https://pip.pypa.io/en/stable/)*, **download the installer** from the [Livestreamer releases page](https://github.com/chrippa/livestreamer/releases) instead. The installer adds a local python environment for livestreamer and also adds the installation directory to your system's `PATH` environment variable, so that the GUI is able to automatically find it. Not using the installer [will cause issues](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/264#issuecomment-229381516) when trying to close streams from the GUI.
+Either download the Streamlink installer from the [Github releases page][streamlink-releases], or install Streamlink via [pip][pip].
 
-### Linux
+### MacOS and Linux
 
-#### Debian, Ubuntu, Mint
-
-If you are using the Debian package of Livestreamer, please make sure that at least version `1.12.2` is installed, or else you will be seeing [this error message](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/78).
-
-### OSX and Linux
-
-OSX and many Linux distributions come with Python being preinstalled. Since early 2015, Livestreamer and its libraries require a Python version greater than `2.7.6`. See issue [#69](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/69) / [#90](https://github.com/bastimeyer/livestreamer-twitch-gui/issues/90) if you're getting the `InsecurePlatformWarning: A true SSLContext object is not available` message.
+Either install Streamlink via [pip][pip], or visit the [Streamlink website][streamlink-install] for a list of available packages. Please make sure to use a Python version greater than `2.7.6`.
 
 ---
 
-## Livestreamer Twitch GUI
+## Streamlink Twitch GUI
+
+### Windows installer
+
+An installer on Windows is available.  
+Automated upgrades are being worked on.
 
 ### Packages
 
 #### Chocolatey (Windows)
 
-[`choco install livestreamer-twitch-gui`](https://chocolatey.org/packages/livestreamer-twitch-gui)
+[`choco install streamlink-twitch-gui`](https://chocolatey.org/packages/streamlink-twitch-gui)
 
-#### AUR (Arch Linux)
+#### AUR (Arch Linux, Antergos, Manjaro, etc.)
 
-[`yaourt -S livestreamer-twitch-gui`](https://aur.archlinux.org/packages/livestreamer-twitch-gui/)  
-[`yaourt -S livestreamer-twitch-gui-git`](https://aur.archlinux.org/packages/livestreamer-twitch-gui-git/)
+[`yaourt -S streamlink-twitch-gui`](https://aur.archlinux.org/packages/streamlink-twitch-gui/)  
+[`yaourt -S streamlink-twitch-gui-git`](https://aur.archlinux.org/packages/streamlink-twitch-gui-git/)
 
-#### Homebrew Cask (OSX)
+#### DEB (Debian, Ubuntu/*buntu, Mint, Elementary, etc.)
 
-[`brew cask install livestreamer-twitch-gui`](https://caskroom.github.io/)
+Being worked on. See [the progress here][deb-rpm-packages].
+
+#### RPM (Fedora, OpenSuse, etc.)
+
+Being worked on. See [the progress here][deb-rpm-packages].
+
+#### Homebrew Cask (MacOS)
+
+[`brew cask install streamlink-twitch-gui`](https://caskroom.github.io/)
+
 
 ### Custom installation
 
-Archives with prebuilt binaries of the [latest release](https://github.com/bastimeyer/livestreamer-twitch-gui/releases) are available for Windows, OSX and Linux on the releases page of the repository on Github. Download the archive that fits the architecture of your CPU and operating system. If you don't know, choose the `x32` one, although you will most likely be using the x64 architecture.
+Archives with prebuilt binaries of the [latest release][streamlink-twitch-gui-releases] are available for Windows, MacOS and Linux on the releases page of the repository on Github. Download the archive that fits the architecture of your CPU and operating system.
 
 #### Windows
 
-Simply extract the archive to a folder of your choice and run `livestreamer-twitch-gui.exe` or create a shortcut to your desktop, taskbar or startmenu.
+Simply extract the archive to any folder and run `streamlink-twitch-gui.exe` or create a shortcut to the desktop, taskbar or startmenu.
+
+#### MacOS
+
+In order to have the application listed in the launchpad, extract the archive to `/Applications` or `$HOME/Applications`.
 
 #### Linux
 
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts /  application icons and run `start.sh` for launching the application.
+After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts / application icons and run `start.sh` for launching the application.
 
-Sadly, there are no `deb` or `rpm` packages available yet. This has different reasons and will hopefully be resolved soon.  
-If you want to help with this issue or want to create and maintain a package that is not yet available for your package manager, please open an issue ticket and let me know. Your help will be very much appreciated!
+**Debian, Ubuntu, Mint, etc.**
 
-**Debian, Ubuntu, Mint**
+Additional dependencies: `xdg-utils`.
 
-Additional dependencies: `x11-utils` and `xdg-utils`.
+**Fedora, etc.**
 
-**Fedora**
+Additional dependencies: `xdg-utils`.
 
-Additional dependencies: `xorg-x11-utils` and `xdg-utils`.
 
-#### OSX
-
-In order to have the application listed in the launchpad, extract the archive to `/Applications` or `$HOME/Applications`.
+[streamlink-install]: https://streamlink.github.io/install.html "Streamlink installation"
+[streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink releases"
+[streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
+[pip]: https://pip.pypa.io/en/stable/ "Python pip"
+[deb-rpm-packages]: https://github.com/streamlink/streamlink-twitch-gui/pull/319

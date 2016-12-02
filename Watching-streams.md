@@ -1,17 +1,19 @@
-After you've set up [[Livestreamer|livestreamer-configuration]] and your [[video player|player-configuration]], you're now finally ready to watch streams.  
-Just click on any of the stream preview images, in either of the stream lists, in the featured channels menu or in any of the channel pages. This will open the Livestreamer launch dialog and will validate your Livestreamer configuration and then launch the selected stream in your video player.  
-The popup can be closed by clicking the "continue" button and can be reopened again by clicking the preview image or by navigating to the "Watching" menu at the top of application (the TV icon).
+To watch a stream, simply click on one of the stream preview images. This will open the stream launch dialog and will validate the Streamlink and player configuration and will then open the stream in the video player.
+
+The popup can be closed by clicking the "continue" button and can be reopened by clicking the preview image again or by navigating to the "Watching" menu at the top of application (the TV icon). There are several options available in the settings menu that change the GUI's behavior after a stream has been successfully opened.
+
 
 ### Stream filters
 
-On Twitch you will find streams in a variety of languages. The GUI will display the language and broadcasting language of each channel while hovering the preview image.  
+Twitch streams come in a variety of languages. Streamlink Twitch GUI will display the language and broadcasting language of each stream.  
 The former may indicate the nationality of a broadcaster while the latter indicates the language of the stream itself. These have been chosen by the broadcaster, so it may not always be correct.  
-Go to the settings menu to filter out certain languages. You can choose between two methods:  
+
+Streams can be filtered in the languages settings menu. The filter will not be applied to the followed streams menu.
+
+There are two different filtering methods:  
 
 **Fade out** (default)  
-This will dim out streams not matching your language selection. This is useful if you still want to load all of the streams in a list, but only highlight the ones you're able to understand.
+This will dim out streams not matching the language selection. This is useful if streams should still be listed, but only the ones highlighted that match the language selection.
 
 **Filter out**  
-This will only load streams matching your language selection. This is useful if you don't care about other streams. Please notice the single language selection limitation by Twitch. If you've selected more than one language, filters can not be applied.  
-
-Streams in the followed streams menu will never be dimmed or filtered.
+This will only request streams from the Twitch API that match the language selection.

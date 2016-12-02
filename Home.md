@@ -1,20 +1,27 @@
-Welcome to the [Livestreamer Twitch GUI](https://github.com/bastimeyer/livestreamer-twitch-gui) wiki!  
+Welcome to the [Streamlink Twitch GUI](https://github.com/streamlink/streamlink-twitch-gui) wiki!  
 Feel free to contribute if you have useful informations you'd like to share with other users.
+
 
 ## Setup
 
-* [[Installation|installation]]
-* [[Livestreamer configuration|livestreamer-configuration]]
-* [[Player configuration|player-configuration]]
-* [[Chat configuration|chat-configuration]]
+- [[Installation|installation]]
+- [[Streamlink configuration|streamlink-configuration]]
+- [[Player configuration|player-configuration]]
+- [[Chat configuration|chat-configuration]]
+
+
+- [[Updating from Livestreamer Twitch GUI|data-migration]]
+
 
 ## Usage
 
-* [[GUI launch parameters|launch-parameters]]
-* [[Watching streams|watching-streams]]
-* [[Twitch.tv login|twitch.tv-login]]
+- [[GUI launch parameters|launch-parameters]]
+- [[Watching streams|watching-streams]]
+- [[Twitch.tv login|twitch.tv-login]]
+- [[Desktop notifications|desktop-notifications]]
+
 
 ## Developing
 
-* [Building the application](https://github.com/bastimeyer/livestreamer-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building)
-* [[Planned features|planned-features]]
+- [Building the application](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building)
+- [[Planned features|planned-features]]

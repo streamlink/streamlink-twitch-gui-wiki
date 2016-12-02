@@ -1,41 +1,43 @@
-When choosing to use a custom chat application, there are several parameters which can be passed to the application. By default these parameters will be escaped before being passed through unless surrounded by quotes.
+Streamlink Twitch GUI provides a list of different chat applications.
 
-**Example**
+### Default browser
 
-Escaped: 
-```
-open irc://irc.twitch.tv/#{channel}
-```
+This will open the chat in the system's default browser. Unlike the chat popup button from the Twitch website (which is something completely different), this will include the address bar, bookmarks bar, etc.
 
-Becomes:
-```
-open irc://irc.twitch.tv#\c\h\a\n\n\e\l
-```
+### Chromium / Google Chrome
 
-Unescaped: 
-```
-open "irc://irc.twitch.tv/#{channel}"
-```
+Choosing this method, Streamlink Twitch GUI will open Chromium or Google Chrome in the so called app mode. This removes all browser GUI elements and is similar to Twitch's chat popup.
 
-Becomes:
-```
-open irc://irc.twitch.tv/#channel
-```
+Streamlink Twitch GUI includes a list of default install locations.
 
-# Parameters
+### Internet Explorer
 
-## {url}
+This is the equivalent of the app mode of Chromium / Google Chrome. Requires the `msie-minimal.vbs` script, which is included in the Windows releases.
 
-The full URL for the twitch chat page of the stream.
+### Chatty
 
-## {channel}
+Uses the popular Java based chat application for Twitch. Please use a version greater than `0.8.2b2`, so single instance mode can be used.
 
-The streamer's channel name.
+Streamlink Twitch GUI includes a list of default Java install locations. The path to the Chatty .jar file needs to be set.
 
-## {user}
+### Custom application
 
-Your twitch username.
+Set the custom application path and parameters.
 
-## {token}
+Several variables related to the stream being watched are available.  
+**Please make sure to wrap variables in quotation marks (single or double).**  
+If used incorrectly, Streamlink Twitch GUI will escape every character, which will not be interpreted correctly by every application.
 
-Your twitch access token
+Correct usage:  
+`--paramA '{varA}' --paramB "{varB1} {varB2}" "--paramC={varC}"`
+
+#### Parameters
+
+- **{url}**  
+  The full URL for the twitch chat page of the stream
+- **{channel}**  
+  The streamer's channel name
+- **{user}**  
+  Your twitch username
+- **{token}**  
+  Your twitch access token
