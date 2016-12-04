@@ -41,10 +41,10 @@ These parameters set Streamlink's behavior in case of stream launch errors.
 See [`--retry-open`][retry-open] and [`--retry-streams`][retry-streams] for more informations.
 
 
-[config-file]: https://streamlink.github.io/en/latest/cli.html#configuration-file "Streamlink config file"
-[streamlink-manual]: https://streamlink.github.io/en/latest/cli.html#command-line-usage "List of all Streamlink parameters"
-[player-passthrough]: #cmdoption--player-passthrough "--player-passthrough parameter"
-[hls-live-edge]: #cmdoption--hls-live-edge "--hls-live-edge parameter"
-[hls-segment-threads]: #cmdoption--hls-segment-threads "--hls-segment-threads parameter"
-[retry-open]: #cmdoption--retry-open "--retry-open parameter"
-[retry-streams]: #cmdoption--retry-streams "--retry-streams parameter"
+[config-file]: https://streamlink.github.io/cli.html#configuration-file "Streamlink config file"
+[streamlink-manual]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
+[player-passthrough]: https://streamlink.github.io/cli.html#cmdoption--player-passthrough "--player-passthrough parameter"
+[hls-live-edge]: https://streamlink.github.io/cli.html#cmdoption--hls-live-edge "--hls-live-edge parameter"
+[hls-segment-threads]: https://streamlink.github.io/cli.html#cmdoption--hls-segment-threads "--hls-segment-threads parameter"
+[retry-open]: https://streamlink.github.io/cli.html#cmdoption--retry-open "--retry-open parameter"
+[retry-streams]: https://streamlink.github.io/cli.html#cmdoption--retry-streams "--retry-streams parameter"

@@ -8,8 +8,6 @@ Feel free to contribute if you have useful informations you'd like to share with
 - [[Streamlink configuration|streamlink-configuration]]
 - [[Player configuration|player-configuration]]
 - [[Chat configuration|chat-configuration]]
-
-
 - [[Updating from Livestreamer Twitch GUI|data-migration]]
 
 
