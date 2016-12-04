@@ -28,6 +28,9 @@ Automated upgrades are being worked on.
 
 ### Packages
 
+*Please note:*  
+*Not all packages have been updated yet after the application's name change.*
+
 #### Chocolatey (Windows)
 
 [`choco install streamlink-twitch-gui`](https://chocolatey.org/packages/streamlink-twitch-gui)
