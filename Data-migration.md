@@ -20,7 +20,7 @@ Some internal settings have been changed. Most settings will be automatically tr
 
 ### Windows
 
-Go to the `%APPDATA%` folder (or `C:\Users\%USERNAME%\AppData\Local`)  
+Go to the `%LOCALAPPDATA%` folder (or `C:\Users\%USERNAME%\AppData\Local`)  
 and rename the `livestreamer-twitch-gui` folder to `streamlink-twitch-gui`
 
 ### MacOS
