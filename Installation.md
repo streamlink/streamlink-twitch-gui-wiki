@@ -13,9 +13,13 @@ Please follow the installation instructions for both applications:
 
 Either download the Streamlink installer from the [Github releases page][streamlink-releases], or install Streamlink via [pip][pip].
 
+*Please note that the [Visual C++ Redistributable package][vc-redist] needs to be installed on systems using a Windows version prior to 10.*
+
 ### MacOS and Linux
 
-Either install Streamlink via [pip][pip], or visit the [Streamlink website][streamlink-install] for a list of available packages. Please make sure to use a Python version greater than `2.7.6`.
+Either install Streamlink via [pip][pip], or visit the [Streamlink website][streamlink-install] for a list of available packages.
+
+*Please make sure to use a Python version greater than `2.7.6`.*
 
 ---
 
@@ -23,8 +27,10 @@ Either install Streamlink via [pip][pip], or visit the [Streamlink website][stre
 
 ### Windows installer
 
-An installer on Windows is available.  
+A Windows installer is available on the [Github releases page][streamlink-twitch-gui-releases].  
 Automated upgrades are being worked on.
+
+*Please note that the [Visual C++ Redistributable package][vc-redist] needs to be installed on systems using a Windows version prior to 10.*
 
 ### Packages
 
@@ -82,4 +88,5 @@ Additional dependencies: `xdg-utils`.
 [streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink releases"
 [streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
 [pip]: https://pip.pypa.io/en/stable/ "Python pip"
+[vc-redist]: https://www.microsoft.com/en-us/download/details.aspx?id=48145 "Visual C++ Redistributable"
 [deb-rpm-packages]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
