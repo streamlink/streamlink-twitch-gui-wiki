@@ -25,7 +25,7 @@ If used incorrectly, Streamlink Twitch GUI will escape every character, which wi
 Correct usage:  
 `--paramA '{varA}' --paramB "{varB1} {varB2}" "--paramC={varC}"`
 
-#### Parameters
+#### Variables
 
 - **{channel}**  
   The streamer's channel name
