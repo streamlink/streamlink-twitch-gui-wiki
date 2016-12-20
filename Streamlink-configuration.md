@@ -12,7 +12,11 @@ There are three different streaming provider options:
 
 - **Streamlink** (default)  
   Requires a working python installation that is compatible with Streamlink (the Windows installer for Streamlink already bundles a local python environment).  
-  Please make sure that both the python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) and the Streamlink python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in the system's `PATH` environment variable. If one of them can't be found, Streamlink Twitch GUI will look for these files in a list of known default locations. If Streamlink has been installed in a different location that can't be automatically resolved, custom paths need to be set.
+  Please make sure that both the python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) and the Streamlink python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in the system's `PATH` environment variable. If one of them can't be found, Streamlink Twitch GUI will look for these files in a list of known default locations. If Streamlink has been installed in a different location that can't be automatically resolved, custom paths need to be set.  
+  
+  *Multiple python versions*  
+  Streamlink requires Python3. On systems where Python2 has been installed alongside Python3 (or the embedded Python3 environment of the Streamlink Windows installer), custom settings may need to be set to make launching streams in Streamlink Twitch GUI work.  
+  Streamlink Twitch GUI will always use the first python executable found in one of the paths defined in the system's `PATH` env var. This means that if python2 has been defined before python3, then a custom path to the Python3 executable needs to be set in the settings menu. The [shebang][shebang] of the Streamlink python script is not being parsed. That's why different results can occur when using default settings while everything seems to be working when using Streamlink from the shell / command line.
 - **Livestreamer**  
   The Livestreamer equivalent of the Streamlink option. On Windows, this needs to be selected if Livestreamer has been installed via `python-pip`.
 - **Livestreamer standalone** (Windows only)  
@@ -58,6 +62,7 @@ These parameters set Streamlink's behavior in case of stream launch errors.
 See [`--retry-open`][retry-open] and [`--retry-streams`][retry-streams] for more informations.
 
 
+[shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix) "Shebang or hashbang - Wikipedia"
 [config-file]: https://streamlink.github.io/cli.html#configuration-file "Streamlink config file"
 [streamlink-manual]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
 [player-passthrough]: https://streamlink.github.io/cli.html#cmdoption--player-passthrough "--player-passthrough parameter"
