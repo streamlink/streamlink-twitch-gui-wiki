@@ -12,11 +12,8 @@ There are three different streaming provider options:
 
 - **Streamlink** (default)  
   Requires a working python installation that is compatible with Streamlink (the Windows installer for Streamlink already bundles a local python environment).  
-  Please make sure that both the python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) and the Streamlink python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in the system's `PATH` environment variable. If one of them can't be found, Streamlink Twitch GUI will look for these files in a list of known default locations. If Streamlink has been installed in a different location that can't be automatically resolved, custom paths need to be set.  
-  
-  *Multiple python versions*  
-  Streamlink requires Python3. On systems where Python2 has been installed alongside Python3 (or the embedded Python3 environment of the Streamlink Windows installer), custom settings may need to be set to make launching streams in Streamlink Twitch GUI work.  
-  Streamlink Twitch GUI will always use the first python executable found in one of the paths defined in the system's `PATH` env var. This means that if python2 has been defined before python3, then a custom path to the Python3 executable needs to be set in the settings menu. The [shebang][shebang] of the Streamlink python script is not being parsed. That's why different results can occur when using default settings while everything seems to be working when using Streamlink from the shell / command line.
+  Please make sure that the Streamlink python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file could not be resolved. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a portable python environment.  
+  By default, Streamlink Twitch GUI will try to use the python environment Streamlink was built for (set in the [shebang][shebang] of the python script). If this method failed, then it will try to resolve the python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.
 - **Livestreamer**  
   The Livestreamer equivalent of the Streamlink option. On Windows, this needs to be selected if Livestreamer has been installed via `python-pip`.
 - **Livestreamer standalone** (Windows only)  
