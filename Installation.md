@@ -45,16 +45,14 @@ Automated upgrades are being worked on.
 
 #### Homebrew Cask (MacOS)
 
-*Not yet available since the application rename*
-
 [`brew cask install streamlink-twitch-gui`](https://caskroom.github.io/)
 
 ### Linux
 
 #### AUR (Arch Linux, Antergos, Manjaro, etc.)
 
-[`yaourt -S streamlink-twitch-gui`](https://aur.archlinux.org/packages/streamlink-twitch-gui/)  
-[`yaourt -S streamlink-twitch-gui-git`](https://aur.archlinux.org/packages/streamlink-twitch-gui-git/)
+[`pacaur -S streamlink-twitch-gui`](https://aur.archlinux.org/packages/streamlink-twitch-gui/)  
+[`pacaur -S streamlink-twitch-gui-git`](https://aur.archlinux.org/packages/streamlink-twitch-gui-git/)
 
 #### DEB (Debian, Ubuntu/*buntu, Mint, Elementary, etc.)
 
