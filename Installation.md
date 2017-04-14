@@ -77,7 +77,7 @@ In order to have the application listed in the launchpad, extract the archive to
 
 #### Linux
 
-After extracting the archive (preferably to `/opt`), run `add-menuitems.sh` once for creating menu shortcuts / application icons and run `start.sh` for launching the application.
+After extracting the archive (preferably to `/opt`), run `./add-menuitems.sh` once for creating menu shortcuts / application icons and run `./start.sh` for launching the application.
 
 **Debian, Ubuntu, Mint, etc.**
 
