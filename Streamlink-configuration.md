@@ -59,6 +59,20 @@ These parameters set Streamlink's behavior in case of stream launch errors.
 See [`--retry-open`][retry-open] and [`--retry-streams`][retry-streams] for more informations.
 
 
+### Stream qualities
+
+Stream qualities can be chosen in the `Source`, `High`, `Medium`, `Low` and `Audio` formats and can be globally set in the "Streams" settings menu or individually set in a channel's settings menu. To be able to customize the quality presets in the "Streams" settings menu, advanced settings need to be enabled first.  
+
+Since summer 2016, new explicit stream qualities (eg. 1080p60) have been added by Twitch in addition to the old quality names (eg. source). Streamlink Twitch GUI will try to map the new quality names to the old ones, so that the same qualities and stream bitrates can be used between streams with different quality names.
+
+A new quality mapping system has been added in the `1.3.0` release to fix the ongoing issues with non-matching stream qualities. This new system is exclusive to Streamlink and Livestreamer is supported due to its broken quality name parser.
+
+The new system utilizes Streamlink's *working* quality name parser and the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter. Qualities are now mapped by defining a list of unwanted names which are **excluded** instead of included in the quality selection. All remaining unfiltered qualities will be selected by the `best` selector. Since whole ranges of qualities can be defined, single names don't need to be defined anymore, which ensures a future-proof selection as long as Streamlink is able to correctly parse the quality names.
+
+The stream quality preset list is made of two columns per row: The first column is being used by the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter, the second column represents the actual quality selection. Please see the parameter documentation for a list of available operators in the exclusion list.  
+Qualities can't be excluded in the "Source" and "Audio only" presets, because the selectors will already match the desired quality. Please notice the quality definitions with and without an FPS value. Quality names without an FPS value are used by Twitch if a broadcaster is using an uncommon refresh rate.
+
+
 [shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix) "Shebang or hashbang - Wikipedia"
 [config-file]: https://streamlink.github.io/cli.html#configuration-file "Streamlink config file"
 [streamlink-manual]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
@@ -67,3 +81,4 @@ See [`--retry-open`][retry-open] and [`--retry-streams`][retry-streams] for more
 [hls-segment-threads]: https://streamlink.github.io/cli.html#cmdoption--hls-segment-threads "--hls-segment-threads parameter"
 [retry-open]: https://streamlink.github.io/cli.html#cmdoption--retry-open "--retry-open parameter"
 [retry-streams]: https://streamlink.github.io/cli.html#cmdoption--retry-streams "--retry-streams parameter"
+[stream-sorting-excludes]: https://streamlink.github.io/cli.html#cmdoption--stream-sorting-excludes "--stream-sorting-excludes parameter"
