@@ -13,10 +13,10 @@ Feel free to contribute if you have useful informations you'd like to share with
 
 ## Usage
 
-- [[GUI launch parameters|launch-parameters]]
 - [[Watching streams|watching-streams]]
 - [[Twitch.tv login|twitch.tv-login]]
 - [[Desktop notifications|desktop-notifications]]
+- [[Application parameters|parameters]]
 
 
 ## Developing

@@ -22,10 +22,6 @@ Minimizes the application window after launch.
 
 Starts the application in tray mode. The tray icon will be removed after restoring the window if tray mode has been previously disabled in the settings.
 
-#### --reset-window
-
-Sets the window position to default. This may be useful in cases where the out-of-boundaries detection didn't work correctly.
-
 #### --no-version-check
 
 Disables the internal new-version-check logic.
@@ -58,3 +54,7 @@ Examples:
 `--goto "/communities/community/speedrunning"`  
 `--goto "/channel/lirik"`  
 `--goto "/search?filter=all&query=diablo"`  
+
+#### --reset-window
+
+Sets the window position to default. This may be useful in cases where the out-of-boundaries detection didn't work correctly or when the screen configuration changed and the window became inaccessible.
