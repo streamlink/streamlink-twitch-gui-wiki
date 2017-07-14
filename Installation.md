@@ -29,7 +29,7 @@ Please follow the installation instructions for **both applications**:
 
   - #### Streamlink portable
 
-    Download the portable version from the [Streamlink website][streamlink-windows].
+    Download the portable version from the [Streamlink website][streamlink-portable].
 
   - #### Chocolatey
 
@@ -134,6 +134,7 @@ Please follow the installation instructions for **both applications**:
 
 [streamlink-install]: https://streamlink.github.io/install.html "Streamlink installation"
 [streamlink-windows]: https://streamlink.github.io/install.html#windows-binaries "Streamlink Windows binaries"
+[streamlink-portable]: https://streamlink.github.io/install.html#windows-portable-version "Streamlink portable on Windows"
 [streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink Windows installer"
 [streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
 [chocolatey]: https://chocolatey.org/ "Chocolatey package manager"
