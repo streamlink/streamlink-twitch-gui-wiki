@@ -127,7 +127,7 @@ Please follow the installation instructions for **both applications**:
     sudo /opt/streamlink-twitch-gui/add-menuitem.sh
 
     # now either use the menu shortcut to start it, or
-    # create link to the start script for simple starts via the shell (optional)
+    # create a link to the start script for quick shell access (optional)
     sudo ln -s /opt/streamlink-twitch-gui/start.sh /usr/bin/streamlink-twitch-gui
     ```
 
