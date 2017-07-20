@@ -1,74 +1,81 @@
-This guide describes how to configure Streamlink or Livestreamer.
+## Selecting a streaming provider
 
-Please keep in mind that support for Livestreamer will be dropped in the future.
+Streamlink Twitch GUI supports both **Streamlink** and **Livestreamer** as streaming providers.
 
+**Please be aware that support for Livestreamer will be dropped in the future since Livestreamer won't receive updates anymore.** See the [[installation wiki page|installation]] for the available Streamlink installation methods.
 
-### Selecting a streaming provider
+If Streamlink (or Livestreamer) have been installed correctly, Streamlink Twitch GUI should be able to automatically select the right configuration and everything will work out of the box.
 
-Streamlink Twitch GUI supports both **Streamlink** as well as **Livestreamer**.  
-These programs can be [[installed|installation]] in different ways and may require custom configurations, depending on the installation. If installed correctly, Streamlink Twitch GUI is able to automatically select the right configuration and everything will work out of the box.
+In case Streamlink Twitch GUI is not able to automatically choose the correct configuration or if Streamlink (or Livestreamer) has been installed in a different way, custom settings need to be applied. This means either defining custom streaming provider paths in the settings menu or adjusting the system's `PATH` environment variable (the Streamlink installers on Windows automatically do that).
 
-There are three different streaming provider options:
+- ### Streamlink (default)
 
-- **Streamlink** (default)  
-  Requires a working python installation that is compatible with Streamlink (the Windows installer for Streamlink already bundles a local python environment).  
-  In case Streamlink Twitch GUI is not able to automatically choose the correct configuration or if Streamlink/Livestreamer have been installed in a different way, custom settings need to be applied. Please make sure that the Streamlink python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a portable python environment.  
-  By default, Streamlink Twitch GUI will try to use the python environment Streamlink was built for (set in the [shebang][shebang] of the python script). If this method failed, then it will try to resolve the python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.  
-  Users of Streamlink portable on Windows need to explicitly choose both the python executable and Streamlink python script, located in the sub directories of the Streamlink portable folder.
-- **Livestreamer**  
+  Requires a working Python installation that is compatible with Streamlink (the Streamlink installers on Windows already bundle a local Python environment).  
+  
+  Please make sure that Streamlink's Python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a different Python environment.
+  
+  By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python script). If this method failed, then it will try to resolve the Python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.
+  
+  Users of Streamlink portable on Windows need to explicitly choose both the Python executable and Streamlink Python script, located in the sub directories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
+
+- ### Livestreamer
+
   The Livestreamer equivalent of the Streamlink option. On Windows, this needs to be selected if Livestreamer has been installed via `python-pip`.
-- **Livestreamer standalone** (Windows only)  
+
+- ### Livestreamer standalone (Windows only)  
+
   Requires Livestreamer to be installed via the Livestreamer Windows installer.  
+
   Please make sure that the Livestreamer executable (`livestreamer.exe`) can be found in the system's `PATH` environment variable. If it can't be found, Streamlink Twitch GUI will look for this file in a list of known default locations. If Livestreamer has been installed in a different location that can't be automatically resolved, a custom path needs to be set.
 
 
-### Config file
+## Config file
 
 The configuration of Streamlink/Livestreamer is a mix between parameters set in the Streamlink/Livestreamer [config file][config-file] and parameters generated by Streamlink Twitch GUI when launching a stream.
 
-**Using the config file is not recommended.** All required options and custom parameters can be selected/added in the settings menu of Streamlink Twitch GUI instead of defining those in the config file.
+**Using the config file is not recommended.** All required options and custom parameters can be selected/added in the settings menu of Streamlink Twitch GUI instead of defining those in the config file. Using the config file may introduce unwanted side effects.
 
-Some parameters are hidden/disabled by default, though, and advanced settings need to be enabled first in the main settings menu.
-
-
-### Custom parameters
-
-See the Streamlink manual for a [list of all available parameters][streamlink-manual]. Some parameters will be overridden by the GUI.
+Some parameters are hidden/disabled by default in Streamlink Twitch GUI and advanced settings need to be enabled first in the main settings menu.
 
 
-### Stream type
+## Custom parameters
+
+See the Streamlink CLI documentation for a [list of all available parameters][streamlink-docs]. Some parameters will be overridden by the GUI.
+
+
+## Stream type
 
 Streamlink Twitch GUI always uses the [`--player-passthrough`][player-passthrough] Streamlink parameter. This is different from using the Streamlink CLI, where the video data is being passed to the player via `stdin` by default. The reason for this is that some players don't support reading from `stdin`. This parameter also enables seeking in VODs, which is planned to be implemented in the future.
 
 The default passthrough method is `HTTP`, which is supported by most of the video players. `RTMP` is an alternative with less streaming delay (in most cases), but doesn't have the same range of support.
 
-The third option `HLS` works completely different and bypasses Streamlink's internal streaming server. Twitch.tv uses the hls protocol for their streaming infrastructure and when selecting this method, Streamlink will just forward the stream's hls url over to the videoplayer. This method has the shortest delay, but since Streamlink is being bypassed, buffering customizations set in the GUI will be ignored and the player will need to download the stream and needs to be configured instead.
+The third option `HLS` works completely different and bypasses Streamlink's proxy server. Twitch.tv uses the HLS protocol for their streaming infrastructure and by selecting this method, Streamlink will just forward the stream's HLS url over to the video player. This method has the shortest delay, but since Streamlink is being bypassed, buffering customizations set in the GUI will be ignored and the player will need to download the stream and needs to be configured instead.
 
-Selecting the `HLS` stream type also changes the behavior of Streamlink. Terminating the Streamlink process won't terminate the player process, which means that the player can't be closed via the GUI anymore (this is a feature of the Streamlink CLI).
+Selecting the `HLS` stream type also changes the behavior of Streamlink. Terminating the Streamlink process won't terminate the player process, which means that the player can't get closed via the GUI anymore (this is a feature of the Streamlink CLI).
 
 
-### Buffering and stream launch settings
+## Buffering and stream launch settings
 
-#### HLS live edge + HLS segment threads
+### HLS live edge + HLS segment threads
 
 These parameters are responsible for the stream fetching and buffering behavior of Streamlink. Please have in mind, that these settings are disabled when choosing the `HLS` stream type (see above).  
 See [`--hls-live-edge`][hls-live-edge] and [`--hls-segment-threads`][hls-segment-threads] for more informations.
 
-#### Stream launch attempts
+### Stream launch attempts
 
 These parameters set Streamlink's behavior in case of stream launch errors.  
 See [`--retry-open`][retry-open] and [`--retry-streams`][retry-streams] for more informations.
 
 
-### Stream qualities
+## Stream qualities
 
-Stream qualities can be chosen in the `Source`, `High`, `Medium`, `Low` and `Audio` formats and can be globally set in the "Streams" settings menu or individually set in a channel's settings menu. To be able to customize the quality presets in the "Streams" settings menu, advanced settings need to be enabled first.  
+Stream qualities can be chosen in the `Source`, `High`, `Medium`, `Low` and `Audio` formats and can be globally set in the "Streams" settings menu or can be individually set in a channel's settings menu. To be able to customize the quality presets in the "Streams" settings menu, advanced settings need to be enabled first.  
 
 Since summer 2016, new explicit stream qualities (eg. 1080p60) have been added by Twitch *in addition* to the old quality names (eg. source). Streamlink Twitch GUI will try to map the new quality names to the old ones, so that the same qualities and stream bitrates can be used between streams with different quality names.
 
 A new quality mapping system has been added in the `1.3.0` release to fix the ongoing issues with non-matching stream qualities. This new system is exclusive to Streamlink and Livestreamer is not supported due to its broken quality name parser.
 
-The new system utilizes Streamlink's *working* quality name parser and the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter. Qualities are now mapped by defining a list of unwanted names which are **excluded** instead of included in the quality selection. All remaining unfiltered qualities will be selected by the `best` or `worst` selector. Since whole ranges of qualities can be defined, single names don't need to be explicitly listed anymore, which ensures a future-proof selection as long as Streamlink is able to correctly parse the quality names.
+The new system utilizes Streamlink's *working* quality name parser and the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter. Qualities are now mapped by defining a list of unwanted names which are **excluded** instead of included in the quality selection. All remaining unfiltered qualities will be selected by the `best` (or `worst`) selector alias. Since whole ranges of qualities can be defined, single names don't need to be explicitly listed anymore, which ensures a future-proof selection as long as Streamlink is able to correctly parse the quality names.
 
 The stream quality preset list is made of two columns per row: The first column is being used by the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter, the second column represents the actual quality selection. Please see the parameter documentation for a list of available operators in the exclusion list.  
 Qualities can't be excluded in the "Source" and "Audio only" presets, because the selectors will already match the desired quality. Please notice the quality definitions with and without an FPS value. Quality names without an FPS value are used by Twitch if a broadcaster is using an uncommon refresh rate.
@@ -76,7 +83,7 @@ Qualities can't be excluded in the "Source" and "Audio only" presets, because th
 
 [shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix) "Shebang or hashbang - Wikipedia"
 [config-file]: https://streamlink.github.io/cli.html#configuration-file "Streamlink config file"
-[streamlink-manual]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
+[streamlink-docs]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
 [player-passthrough]: https://streamlink.github.io/cli.html#cmdoption--player-passthrough "--player-passthrough parameter"
 [hls-live-edge]: https://streamlink.github.io/cli.html#cmdoption--hls-live-edge "--hls-live-edge parameter"
 [hls-segment-threads]: https://streamlink.github.io/cli.html#cmdoption--hls-segment-threads "--hls-segment-threads parameter"
