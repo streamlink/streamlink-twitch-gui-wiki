@@ -22,4 +22,4 @@ Feel free to contribute if you have useful informations you'd like to share with
 ## Developing
 
 - [Building the application](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building)
-- [[Planned features|planned-features]]
+- [TODO list](https://github.com/streamlink/streamlink-twitch-gui/blob/master/TODO.md)
