@@ -94,6 +94,10 @@ Please follow the installation instructions for **both applications**:
     [`pacaur -S streamlink-twitch-gui`](https://aur.archlinux.org/packages/streamlink-twitch-gui/)  
     [`pacaur -S streamlink-twitch-gui-git`](https://aur.archlinux.org/packages/streamlink-twitch-gui-git/)
 
+  - #### EOPKG (Solus)
+
+    [`sudo eopkg install streamlink-twitch-gui`](https://dev.solus-project.com/source/streamlink-twitch-gui/)
+
   - #### DEB (Debian, Ubuntu/*buntu, Mint, Elementary, etc.)
 
     Being worked on. See [the progress here][deb-rpm-packages].  
