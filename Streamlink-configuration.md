@@ -43,15 +43,22 @@ Some parameters are hidden/disabled by default in Streamlink Twitch GUI and adva
 See the Streamlink CLI documentation for a [list of all available parameters][streamlink-docs]. Some parameters will be overridden by the GUI.
 
 
-## Stream type
+## Player input
 
-Streamlink Twitch GUI always uses the [`--player-passthrough`][player-passthrough] Streamlink parameter. This is different from using the Streamlink CLI, where the video data is being passed to the player via `stdin` by default. The reason for this is that some players don't support reading from `stdin`. This parameter also enables seeking in VODs, which is planned to be implemented in the future.
+There are four different methods of how Streamlink will forward the data to the player when watching streams. The selected input method has to be supported by the selected player, so please make sure to choose the correct option.
 
-The default passthrough method is `HTTP`, which is supported by most of the video players. `RTMP` is an alternative with less streaming delay (in most cases), but doesn't have the same range of support.
-
-The third option `HLS` works completely different and bypasses Streamlink's proxy server. Twitch.tv uses the HLS protocol for their streaming infrastructure and by selecting this method, Streamlink will just forward the stream's HLS url over to the video player. This method has the shortest delay, but since Streamlink is being bypassed, buffering customizations set in the GUI will be ignored and the player will need to download the stream and needs to be configured instead.
-
-Selecting the `HLS` stream type also changes the behavior of Streamlink. Terminating the Streamlink process won't terminate the player process, which means that the player can't get closed via the GUI anymore (this is a feature of the Streamlink CLI).
+- ### Standard input (default)  
+  Writes the stream to the player's standard input channel. This is the default behavior of Streamlink and is supported by most players.  
+  Does not set any additional Streamlink parameters.
+- ### Named pipe  
+  Writes the stream to a named pipe, where the player reads from. This is a different method of inter-process communication and its implementation differs between operating systems. See [Wikipedia][wikipedia-named-pipe] for more informations.  
+  Sets the [`--player-fifo`][player-fifo] Streamlink parameter.
+- ### HTTP  
+  Launches a local HTTP server where the player reads from. This was the default method set by Streamlink Twitch GUI until version `1.4.0`, because it is supported by almost all known players. Streams may be paused/stopped by the player and continued later on, as long as the player does not get closed. On some systems, this method may pop up a firewall warning.  
+  Sets the [`--player-continuous-http`][player-continuous-http] Streamlink parameter.
+- ### HLS (passthrough)  
+  Lets the player download and buffer the stream by itself. Streamlink will only retrieve the stream URL from Twitch and then forward it to the player, so all of Streamlink's buffering configurations will be ignored. This option also comes with the disadvantage that the player window can't get closed from inside Streamlink Twitch GUI due to Streamlink's passthrough behavior.  
+  Sets the [`--player-passthrough hls`][player-passthrough] Streamlink parameter.
 
 
 ## Buffering and stream launch settings
@@ -84,9 +91,12 @@ Qualities can't be excluded in the "Source" and "Audio only" presets, because th
 [shebang]: https://en.wikipedia.org/wiki/Shebang_(Unix) "Shebang or hashbang - Wikipedia"
 [config-file]: https://streamlink.github.io/cli.html#configuration-file "Streamlink config file"
 [streamlink-docs]: https://streamlink.github.io/cli.html#command-line-usage "List of all Streamlink parameters"
-[player-passthrough]: https://streamlink.github.io/cli.html#cmdoption--player-passthrough "--player-passthrough parameter"
-[hls-live-edge]: https://streamlink.github.io/cli.html#cmdoption--hls-live-edge "--hls-live-edge parameter"
-[hls-segment-threads]: https://streamlink.github.io/cli.html#cmdoption--hls-segment-threads "--hls-segment-threads parameter"
-[retry-open]: https://streamlink.github.io/cli.html#cmdoption--retry-open "--retry-open parameter"
-[retry-streams]: https://streamlink.github.io/cli.html#cmdoption--retry-streams "--retry-streams parameter"
-[stream-sorting-excludes]: https://streamlink.github.io/cli.html#cmdoption--stream-sorting-excludes "--stream-sorting-excludes parameter"
+[wikipedia-named-pipe]: https://en.wikipedia.org/wiki/Named_pipe "Wikipedia: Named pipe"
+[player-fifo]: https://streamlink.github.io/cli.html#cmdoption-n "--player-fifo parameter"
+[player-continuous-http]: https://streamlink.github.io/cli.html#cmdoption-player-continuous-http "--player-continuous-http parameter"
+[player-passthrough]: https://streamlink.github.io/cli.html#cmdoption-player-passthrough "--player-passthrough parameter"
+[hls-live-edge]: https://streamlink.github.io/cli.html#cmdoption-hls-live-edge "--hls-live-edge parameter"
+[hls-segment-threads]: https://streamlink.github.io/cli.html#cmdoption-hls-segment-threads "--hls-segment-threads parameter"
+[retry-open]: https://streamlink.github.io/cli.html#cmdoption-retry-open "--retry-open parameter"
+[retry-streams]: https://streamlink.github.io/cli.html#cmdoption-retry-streams "--retry-streams parameter"
+[stream-sorting-excludes]: https://streamlink.github.io/cli.html#cmdoption-stream-sorting-excludes "--stream-sorting-excludes parameter"
