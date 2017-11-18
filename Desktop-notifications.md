@@ -5,31 +5,49 @@ Notification behavior and click actions can be configured in the settings menu.
 
 ### Notification filtering
 
-Notifications can be individually enabled or disabled in the settings menu of each channel. This will override the global setting and works in conjunction with the filtering setting (show all except disabled ones / ignore all except enabled ones).
+Notifications can be individually enabled or disabled in the settings menu of each channel. This will override the global setting and works in conjunction with the filtering setting:
+- show all except disabled ones (blacklist)
+- ignore all except enabled ones (whitelist)
 
-To temporarily disable the notification system, click the entry in the application's tray icon menu. The paused state will be indicated by a teal colored icon in the titlebar and will not be saved between application restarts.
+The notification system can be temporarily disabled in the context menu of the application's tray menu icon. The paused state will be indicated by a teal colored icon in the titlebar and will not be saved between application restarts.
 
 
 ### Notification types
 
-Several notification types are available, depending on the operating system. When choosing the "automatic selection" option, native methods are being preferred and all methods are being tested until rich notifications are being used as a last option.
+Several notification types are available, depending on the operating system. When choosing the "automatic selection" option, all methods will be tested in descending order, hoping to find a working notification provider.
 
-#### Toast notifications (Windows)
 
-Native notifications on Windows 8 and Windows 10, provided by SnoreToast. To be able to see toast notifications, "banner notifications" need to be enabled in the system settings / control center. Another requirement is a startmenu shortcut linking to the application. Streamlink Twitch GUI automatically creates a start menu shortcut if it is missing.
+#### Toast notifications (Windows 8+)
 
-#### Native notifications (MacOS)
+Native notifications on Windows 8 and above, provided by [SnoreToast][snoretoast]. To be able to see toast notifications, "banner notifications" need to be enabled in the [system settings / control center][windows]. Another requirement is a special startmenu shortcut linking to the application which also includes the application ID. SnoreToast automatically creates this special start menu shortcut if it is missing.
 
-Streamlink Twitch GUI uses Chromium's (new and experimental) native notification implementation on MacOS, which uses in the system's notification center.
 
-#### Freedesktop notifications (Linux)
+#### Native notifications (macOS and Linux)
 
-Implementation of the freedesktop notification specification. Uses gdbus as a helper executable due to restrictions of the NW.js build system. Click actions are supported, but need to be supported by the notification server as well.
+Uses Chromium's native notification implementation.
+
+- macOS  
+  Uses the system's [notification center][macos].  
+  The notification type (banner or clickable alert) can be configured in the system's notification settings when selecting the Streamlink Twitch GUI app.
+- Linux  
+  Uses the [freedesktop notification standard][freedesktop-spec].  
+  Depending on the system configuration, a custom notification server needs to be running. See the [Arch Linux Wiki][arch-wiki] for more informations.
+
+This method may fall back to Chromium rich notifications (see below).
+
 
 #### Growl notifications
 
-Third party notification service for Windows, MacOS and Linux.
+Third party notification service for Windows, macOS and Linux. Needs to be running on the localhost and default port.
 
-#### Chromium rich notifications
+
+#### Chromium rich notifications (Windows 7)
 
 Chromium's custom, non-native notifications which are rendered by the application itself.
+
+
+[snoretoast]: https://github.com/KDE/snoretoast
+[windows]: https://support.microsoft.com/en-us/help/10761/windows-10-change-notification-action-settings
+[macos]: https://support.apple.com/en-us/HT204079
+[freedesktop-spec]: https://developer.gnome.org/notification-spec/
+[arch-wiki]: https://wiki.archlinux.org/index.php/Desktop_notifications
