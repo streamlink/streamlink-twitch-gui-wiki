@@ -3,32 +3,38 @@ Streamlink Twitch GUI supports multiple different chat applications.
 
 ### Default browser
 
-This will open the chat in the system's default browser. Unlike the chat popup button from the Twitch website (which is something completely different), this will include the address bar, bookmarks bar, etc.
+Attempts to open the chat in the system's default browser. Unlike the chat popup button from the Twitch website (which is something completely different), this will include the address bar, bookmarks bar, etc.
 
 
-### Chromium / Google Chrome
+### [Chromium][chromium] / [Google Chrome][chrome]
 
-By choosing this method, Streamlink Twitch GUI will open Chromium or Google Chrome in the so called app mode. This removes all browser GUI elements and is similar to Twitch's chat popup.
+Opens the chat in Chromium's or Google Chrome's so called "app mode". This removes all browser GUI elements and is similar to Twitch's chat popup.
 
-Streamlink Twitch GUI includes a list of default install locations.  
-A custom paths needs to be set if Chromium or Google Chrome have been installed in a different location or can't be found in the folders of the system's `PATH` env var.
-
-
-### Internet Explorer
-
-This is the equivalent of the app mode of Chromium / Google Chrome. Requires the `msie-minimal.vbs` script, which is included in the Windows releases.
+A custom executable path needs to be set, if it can't be resolved via the included list of default install locations or via the system's `PATH` environment variable.
 
 
-### Chatty
+### Internet Explorer (Windows)
+
+This is the equivalent of the app mode of Chromium / Google Chrome. Requires the `msie-minimal.vbs` script to be located in the application folder (included in the Windows releases).
+
+
+### [Chatty][chatty]
 
 Uses the popular Java based chat application for Twitch. Please use a version greater than `0.8.2b2`, so single instance mode can be used.
 
-Streamlink Twitch GUI includes a list of default Java install locations. The path to the Chatty .jar file needs to be set. If no path is set, the `chatty` launch script (read from the `PATH` env var) will be used.
+Custom Java executable and `chatty.jar` paths need to be set, if they can't be resolved via the included list of default locations or via the system's `PATH` environment variable.
+
+Since Twitch requires authentication for joining the chat, either the authentication option needs to be enabled (enabled by default), or custom auth data be set in Chatty itself.
+
+
+### Chatty standalone (Windows)
+
+The standalone version of Chatty that comes with a single executable.
 
 
 ### Custom application
 
-Set the custom application path and parameters.
+Set a custom application path and parameters.
 
 Several variables related to the stream being watched are available.  
 **Please make sure to wrap variables in quotation marks (single or double).**  
@@ -47,3 +53,8 @@ Correct usage:
   Your twitch username
 - **{token}**  
   Your twitch access token
+
+
+  [chromium]: https://www.chromium.org/Home
+  [chrome]: https://www.google.com/chrome/browser/desktop/index.html
+  [chatty]: https://chatty.github.io
