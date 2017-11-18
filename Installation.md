@@ -100,27 +100,31 @@ Please follow the installation instructions for **both applications**:
 
   - #### DEB (Debian, Ubuntu/*buntu, Mint, Elementary, etc.)
 
-    Being worked on. See [the progress here][deb-rpm-packages].  
+    Not available due to build/license/traffic restrictions.  
+    See the [TODO][todo-packages] list and/or [this][deb-rpm-packages] pull request.  
     Help is very much appreciated.
 
   - #### RPM (Fedora, OpenSuse, etc.)
 
-    Being worked on. See [the progress here][deb-rpm-packages].  
+    Not available due to build/license/traffic restrictions.  
+    See the [TODO][todo-packages] list and/or [this][deb-rpm-packages] pull request.  
     Help is very much appreciated.
 
   - #### Other packages
 
-    Packages for other distros and package managers are welcome and help is very much appreciated. Please open a new issue thread if you want to help to create a new package.
+    Packages for other distros and package managers are welcome. Please open a new thread on the issue tracker if you want to help to create a new package. Thank you very much!
 
   - #### Custom installation
 
-    Download the archive from the [Github releases page][streamlink-twitch-gui-releases] and extract it to a folder of your choice (preferably to `/opt`). From the path of the application folder, execute the `add-menuitem.sh` bash script once for creating application icons and menu shortcuts (run as root to create those globally). Then run the `start.sh` bash script for launching the application. Depending on your distribution, the `xdg-utils` package may need to be installed first in order to create icons and shortcuts.
+    Download the archive containing the **precompiled application** from the [Github releases page][streamlink-twitch-gui-releases] and extract it to a folder of your choice (eg. `/opt`). From the path of the application folder, execute the `add-menuitem.sh` bash script once for creating application icons and menu shortcuts (run as root to create those globally). Then run the `start.sh` bash script for launching the application. Depending on your distribution, the `xdg-utils` package may need to be installed first in order to create icons and shortcuts.
 
-    Example on Ubuntu:  
+    **Example** on Ubuntu (just follow it loosely):  
     ```bash
     # download and extract the archive
     # replace ARCHIVE_DOWNLOAD_URL with the actual URL
     wget -O /tmp/streamlink-twitch-gui.tar.gz ARCHIVE_DOWNLOAD_URL
+    # make sure /opt exists
+    sudo mkdir /opt
     # extract to /opt
     sudo tar -xzvf /tmp/streamlink-twitch-gui.tar.gz -C /opt
 
@@ -146,4 +150,5 @@ Please follow the installation instructions for **both applications**:
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
 [python-pip]: https://pip.pypa.io/en/stable/ "Python pip"
 [vc-redist]: https://www.microsoft.com/en-us/download/details.aspx?id=48145 "Visual C++ Redistributable"
+[todo-packages]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/TODO.md#linux-packages
 [deb-rpm-packages]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
