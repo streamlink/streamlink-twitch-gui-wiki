@@ -19,7 +19,8 @@ Feel free to contribute if you have useful informations you'd like to share with
 - [[Application parameters|parameters]]
 
 
-## Developing
+## Development
 
+- [[Translating|translating]]
 - [Building the application](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building)
 - [TODO list](https://github.com/streamlink/streamlink-twitch-gui/blob/master/TODO.md)
