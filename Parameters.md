@@ -10,15 +10,22 @@ Alias: `-l`
 Accepted values: `none`, `error`, `debug`  
 Default: `error`
 
-Defines the kind of log output messages. By default, only error messages will be logged. Debug messages can contain useful informations of the stream launch process, chat applications, notifications, etc.  
-Log files are being stored for up to 7 days in the `$TMPDIR/streamlink-twitch-gui/logs` directory.
+Defines the kind of log output messages. By default, only error messages will be logged. Debug messages can contain useful informations of the stream launch process, chat applications, notifications, etc.
+
+Log output is also written to logfiles and stored for up to 7 days.
+
+Windows:  
+`%TMPDIR%/streamlink-twitch-gui/logs`  
+macOS:  
+`$HOME/Library/Logs/streamlink-twitch-gui`  
+Linux:  
+`${$XDG_DATA_HOME:-$HOME/.local/share}/streamlink-twitch-gui/logs`
 
 #### --no-logfile
 
 Type: `L`
 
-Disables writing log messages to files.  
-Log files are being stored for up to 7 days in the `$TMPDIR/streamlink-twitch-gui/logs` directory.
+Disables writing log messages to files.
 
 #### --no-version-check
 
