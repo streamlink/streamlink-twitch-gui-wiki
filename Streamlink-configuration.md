@@ -10,7 +10,11 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
 - ### Streamlink (default)
 
-  Requires a working Python installation that is compatible with Streamlink (the Streamlink installers on Windows already bundle a local Python environment).  
+  Requires a working Python installation that is compatible with Streamlink (the Streamlink installers on Windows already bundle a local Python environment). 
+
+  **Please note**  
+  Due to a recent packaging change of Streamlink on Windows, all users of Windows who are using a Streamlink release which was built after 2017-11-06 have to apply custom settings as described in this thread:  
+  https://github.com/streamlink/streamlink-twitch-gui/issues/618
   
   Please make sure that Streamlink's Python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a different Python environment.
   
