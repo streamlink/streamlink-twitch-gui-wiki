@@ -8,25 +8,34 @@ If Streamlink (or Livestreamer) have been installed correctly, Streamlink Twitch
 
 In case Streamlink Twitch GUI is not able to automatically choose the correct configuration or if Streamlink (or Livestreamer) has been installed in a different way, custom settings need to be applied. This means either defining custom streaming provider paths in the settings menu or adjusting the system's `PATH` environment variable (the Streamlink installers on Windows automatically do that).
 
-- ### Streamlink (default)
+
+- ### `Streamlink (Windows)` (default on Windows - new)
+
+  Requires a Streamlink version `>=1.1.0`, installed via Streamlink's Windows installer or via `pip` (Streamlink wheel).
+  
+  Uses the newly added `streamlinkw` executable instead of needing to resolve the python executable and Streamlink entry script file.
+
+  By default, Streamlink Twitch GUI will try to find `streamlinkw.exe` in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if Streamlink has been installed in a different location.
+
+- ### `Streamlink` (default)
 
   Requires a working Python installation that is compatible with Streamlink (the Streamlink installers on Windows already bundle a local Python environment). 
 
   **Please note**  
-  Due to a recent packaging change of Streamlink on Windows, all users of Windows who are using a Streamlink release which was built after 2017-11-06 have to apply custom settings as described in this thread:  
+  Users of Windows who are unable to find the Streamlink python script need to upgrade to the latest Streamlink and Streamlink Twitch GUI release and use the `Streamlink (Windows)` streaming provider instead. This is due to a packaging change of Streamlink on Windows, as described in this thread:  
   https://github.com/streamlink/streamlink-twitch-gui/issues/618
   
-  Please make sure that Streamlink's Python script (`streamlink-script.py` on Windows, `streamlink` on MacOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a different Python environment.
+  Please make sure that Streamlink's Python script (`streamlink-script.py` on Windows, `streamlink` on macOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a different Python environment.
   
-  By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python script). If this method failed, then it will try to resolve the Python executable (`pythonw.exe` on Windows, `python` on MacOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.
+  By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python script). If this method failed, then it will try to resolve the Python executable (`pythonw.exe` on Windows, `python` on macOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.
   
   Users of Streamlink portable on Windows need to explicitly choose both the Python executable and Streamlink Python script, located in the sub directories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
 
-- ### Livestreamer
+- ### `Livestreamer`
 
   The Livestreamer equivalent of the Streamlink option. On Windows, this needs to be selected if Livestreamer has been installed via `python-pip`.
 
-- ### Livestreamer standalone (Windows only)  
+- ### `Livestreamer (Standalone)` (Windows only)  
 
   Requires Livestreamer to be installed via the Livestreamer Windows installer.  
 
