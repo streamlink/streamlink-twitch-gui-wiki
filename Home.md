@@ -14,6 +14,7 @@ Feel free to contribute if you have useful informations you'd like to share with
 ## Usage
 
 - [[Watching streams|watching-streams]]
+- [[Embedded ads|embedded-ads]]
 - [[Twitch.tv login|twitch.tv-login]]
 - [[Desktop notifications|desktop-notifications]]
 - [[Application parameters|parameters]]
