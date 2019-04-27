@@ -23,7 +23,7 @@ By default, log output is written to log files and stored for up to 7 days.
 
 | OS | Log file path |
 | :--- | :--- |
-| Windows | `%TMP%\\streamlink-twitch-gui\\logs` |
+| Windows | `%TMP%\streamlink-twitch-gui\logs` |
 | macOS | `${HOME}/Library/Logs/streamlink-twitch-gui` |
 | Linux | `${XDG_DATA_HOME:-${HOME}/.local/share}/streamlink-twitch-gui/logs` |
 
