@@ -7,6 +7,8 @@ Launch parameters are only recognized on the initial application start, while ru
 
 ----
 
+### Streamlink Twitch GUI parameters
+
 #### `--loglevel`, `-l`
 
 | | |
@@ -114,9 +116,36 @@ Performs a transition to a different menu or submenu. See the [application route
 
 Examples:  
 `--goto "user.followedStreams"`  
-`--goto "communities.index.all"`  
-`--goto "/communities/all"`  
 `--goto "/games/Dota%202"`  
-`--goto "/communities/community/speedrunning"`  
 `--goto "/channel/lirik"`  
 `--goto "/search?filter=all&query=diablo"`  
+
+----
+
+### NW.js / Chromium parameters
+
+Streamlink Twitch GUI is built on top of the NW.js platform, a Node.js powered version of Chromium. This means that all NW.js and Chromium related parameters can be used. These parameters are by definition launch parameters. More information about the available parameters can be found on the following sites. Please note that certain parameters either won't work or should not be used at all when launching NW.js applications.
+
+- [NW.js documentation (http only)](http://docs.nwjs.io/en/latest/References/Command%20Line%20Options/)
+- [Peter Beverloo's List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/)
+- [NW.js/Chromium source code (nw42-log:/chrome/common/chrome_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/chrome/common/chrome_switches.cc)
+- [NW.js/Chromium source code (nw42-log:/content/public/common/content_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/content/public/common/content_switches.cc)
+
+#### User data directory
+
+| OS | Custom path | Default path |
+| :--- | :--- | :--- |
+| Windows | `--user-data-dir=C:\path\to` | `%LOCALAPPDATA%\streamlink-twitch-gui` |
+| macOS | `--user-data-dir=/path/to` | Config:<br> `${HOME}/Library/Application Support/streamlink-twitch-gui` <br>Cache:<br> `${HOME}/Library/Caches/streamlink-twitch-gui` |
+| Linux | `--user-data-dir=/path/to` | Config:<br> `${XDG_CONFIG_HOME:-${HOME}/.config}/streamlink-twitch-gui` <br>Cache:<br> `${XDG_CACHE_HOME:-${HOME}/.cache}/streamlink-twitch-gui` |
+
+Sets the path of the application's user data directory where config and cache files are stored. Can be an absolute or relative path. If the path contains a space character, then the whole parameter with its value has to be set in quotes. On macOS and Linux, config and cache files are usually separated into different directories. Setting the parameter overrides this behavior. More detailed infos [here](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md).
+
+#### Chromium logging
+
+| OS | Warning+Error logging | Verbose logging |
+| :--- | :--- | :--- |
+| Windows | `--enable-logging --log-level=1` | `--enable-logging --v=1` |
+| macOS / Linux | `--enable-logging=stderr --log-level=1` | `--enable-logging=stderr --v=1` |
+
+Useful when diagnosing issues with the Chromium part of NW.js. On Windows, log output is not written to `stderr`, but instead written as a file to `User Data\chrome_debug.log` inside the user data dir (see above). This file will contain [Unix-like line endings](https://en.wikipedia.org/wiki/Newline). More detailed infos [here](https://www.chromium.org/for-testers/enable-logging).
