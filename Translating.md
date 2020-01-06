@@ -10,6 +10,7 @@ Translating Streamlink Twitch GUI
     5. [Variables](#25-variables)
     6. [Pluralization](#26-pluralization)
     7. [Missing translations](#27-missing-translation)
+    8. [Hotkeys](#28-hotkeys)
 3. [Translating](#3-translating)
     1. [Setup](#31-setup)
     2. [Adding new translations](#32-adding-new-translations)
@@ -183,6 +184,30 @@ i18n.t( "fruits.apples", { count: 2 } ) === "2 pommes";
 ### 2.7 Missing translations
 
 If a translation is missing and can't be found, `ember-i18n` will try to use a fallback locale for looking it up. For locales with a region subtag, their parent locale will be looked up first, otherwise, `en` will be used as a global fallback. Missing translations in the `en` locale (which is the developer's fault) result in a `Missing translation: {{path}}` message being shown.
+
+### 2.8 Hotkeys
+
+Another special part of each locale are hotkey translations, which are shown in tooltips or in the hotkeys settings menu. Hotkeys consist of optional modifier keys, like `controlKey`, `shiftKey`, `altKey` or `metaKey`, and special key codes, like for example `KeyA` or `ArrowLeft`, which may need to be translated or shortened in order to sound more natural.
+
+These codes are defined by the DOM Level 3 Events Specification and describe the [`code`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code) property of a [`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) object. This `code` property differs from the KeyboardEvent's usually used `key` property in the sense that it represents a physical key on the user's keyboard as opposed to the character the keypress would otherwise generate. In more simple words, this property returns a value which isn't altered by the keyboard layout or the state of the modifier keys.
+
+Since these codes are simple words or combinations of words of the English language, the `en` locale doesn't include "translations" for each code. This list of codes however is dynamic and codes for all possible keys can be added by the translator.
+
+Certain codes already get shortened by the application's `HotkeyService` itself, like for example:
+
+```text
+ KeyA   -> A  ...  KeyZ   -> Z
+ Digit0 -> 0  ...  Digit9 -> 9
+```
+
+See a list of all available KeyboardEvent codes in the MDN web docs:  
+https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code/code_values
+
+Further technical details can be found in the official W3C documentation:
+
+- https://www.w3.org/TR/DOM-Level-3-Events/#interface-keyboardevent
+- https://www.w3.org/TR/DOM-Level-3-Events/#keys-codevalues
+- https://www.w3.org/TR/uievents-code/
 
 
 ## 3. Translating
