@@ -187,17 +187,25 @@ If a translation is missing and can't be found, `ember-i18n` will try to use a f
 
 ### 2.8 Hotkeys
 
-Another special part of each locale are hotkey translations, which are shown in tooltips or in the hotkeys settings menu. Hotkeys consist of optional modifier keys, like `controlKey`, `shiftKey`, `altKey` or `metaKey`, and special key codes, like for example `KeyA` or `ArrowLeft`, which may need to be translated or shortened in order to sound more natural.
+Another special part of each locale are hotkey translations, which are shown in tooltips or in the hotkeys settings menu. Hotkeys consist of optional modifier keys, like `ctrlKey`, `shiftKey`, `altKey` or `metaKey`, and special key codes, like for example `KeyA` or `ArrowLeft`, which may need to be translated or shortened in order to sound more natural.
 
 These codes are defined by the DOM Level 3 Events Specification and describe the [`code`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code) property of a [`KeyboardEvent`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent) object. This `code` property differs from the KeyboardEvent's usually used `key` property in the sense that it represents a physical key on the user's keyboard as opposed to the character the keypress would otherwise generate. In more simple words, this property returns a value which isn't altered by the keyboard layout or the state of the modifier keys.
 
-Since these codes are simple words or combinations of words of the English language, the `en` locale doesn't include "translations" for each code. This list of codes however is dynamic and codes for all possible keys can be added by the translator.
-
-Certain codes already get shortened by the application's `HotkeyService` itself, like for example:
+Since these codes are simple words or combinations of words of the English language, the `en` locale doesn't include "translations" for each code. This translation list of codes however is dynamic and codes can optionally be added by the translator. [Codes of alphanumeric keys](https://www.w3.org/TR/uievents-code/#key-alphanumeric-writing-system) already get mapped to logical key names via Chromium's available `KeyboardLayoutMap`s and therefore don't need to be translated or renamed:
 
 ```text
- KeyA   -> A  ...  KeyZ   -> Z
- Digit0 -> 0  ...  Digit9 -> 9
+ KeyA   -> A   ...   KeyZ   -> Z
+ Digit0 -> 0   ...   Digit9 -> 9
+```
+
+As a final example, hotkey translations in the German `de` locale could look like this:
+
+```text
+codes:
+    Insert: Einfügen
+    Delete: Entfernen
+    Space: Leertaste
+    ...
 ```
 
 See a list of all available KeyboardEvent codes in the MDN web docs:  
@@ -208,6 +216,10 @@ Further technical details can be found in the official W3C documentation:
 - https://www.w3.org/TR/DOM-Level-3-Events/#interface-keyboardevent
 - https://www.w3.org/TR/DOM-Level-3-Events/#keys-codevalues
 - https://www.w3.org/TR/uievents-code/
+
+Or on the KeyboardMap API docs of the Web Platform Incubator Community Group:
+
+- https://wicg.github.io/keyboard-map/#introduction
 
 
 ## 3. Translating
@@ -283,19 +295,23 @@ In order to see if everything is working properly, you need to build the applica
 If you haven't installed the project's dependencies yet, you have to do it now. The [contributing guide](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building) has more detailed informations.
 
 ```bash
-# install the grunt CLI tool globally (may require administrator privileges)
-yarn global add grunt-cli
-# install all of the project's build- and runtime dependencies
+# install the project's build- and runtime dependencies
 yarn install
+```
+
+Get a list of missing, invalid or unused translation strings first:
+
+```bash
+yarn run grunt webpack:i18n
 ```
 
 Then run a development build:
 
 ```bash
-grunt build
+yarn run grunt build
 ```
 
-This command builds and then launches the application in development mode and will also automatically rebuild it as soon as any file being included or folder being watched gets changed. See the log output for the current build status and reload the application window to see your changes (click the reload button at the top or press `CTRL+r` in the dev tools window, if opened - hot module reloading is not available). Press `CTRL+c` in the terminal window to exit the application and stop rebuilding it.
+This command builds and then launches the application in development mode and will also automatically rebuild it as soon as any file being included or folder being watched gets changed. See the log output for the current build status and reload the application window to see your changes (click the reload button at the top or press `CTRL+R` in the dev tools window, if opened - hot module reloading is not available). Press `CTRL+C` in the terminal window to exit the application and stop rebuilding it.
 
 ### 3.4 Committing changes
 
