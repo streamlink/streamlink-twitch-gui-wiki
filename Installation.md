@@ -129,11 +129,15 @@ See the [Streamlink website][streamlink-install] for a list of additional instal
 
 - ### Linux
 
-  - #### Arch Linux, Antergos, Manjaro, etc. (AUR)
+  - #### Arch Linux, Manjaro, etc. (AUR)
 
     [Stable][aur-streamlink-twitch-gui]
 
     ```bash
+    # install via your AUR helper of choice, eg. yay
+    yay -S streamlink-twitch-gui
+
+    # install via makepkg
     git clone 'https://aur.archlinux.org/streamlink-twitch-gui'
     cd streamlink-twitch-gui
     makepkg --install --syncdeps --cleanbuild
@@ -142,6 +146,10 @@ See the [Streamlink website][streamlink-install] for a list of additional instal
     [Development][aur-streamlink-twitch-gui-git]
 
     ```bash
+    # install via your AUR helper of choice, eg. yay
+    yay -S streamlink-twitch-gui-git
+
+    # install via makepkg
     git clone 'https://aur.archlinux.org/streamlink-twitch-gui-git'
     cd streamlink-twitch-gui-git
     makepkg --install --syncdeps --cleanbuild
@@ -155,62 +163,19 @@ See the [Streamlink website][streamlink-install] for a list of additional instal
     sudo eopkg install streamlink-twitch-gui
     ```
 
-  - #### Debian, Ubuntu/*buntu, Linux Mint, Elementary, etc. (DEB)
-
-    No package+repository available yet due to build/license/traffic restrictions.  
-    See the [TODO][todo-packages] list.  
-    Help is very much appreciated.
-
-  - #### Fedora, OpenSuse, etc. (RPM)
-
-    No package+repository available yet due to build/license/traffic restrictions.  
-    See the [TODO][todo-packages] list.  
-    Help is very much appreciated.
-
   - #### Other packages
 
-    Packages for other distros and package managers are welcome. Please open a new thread on the issue tracker if you want to help to create a new package. Thank you very much!
+    Due to build- and license restrictions and/or traffic limitations, `deb` packages for Debian, Ubuntu/*buntu, Linux Mint, Elementary, etc. and `rpm` packages for Fedora, OpenSuse, etc. can't be created at the moment. An experiment with custom package repositories [was done in late 2016][custom-package-repo-experiment], but unfortunately it didn't work out properly.
+
+    If you want to help with the creation of a package for your distro, or even better, a Flatpak, Snap or AppImage package, then please open a new thread on the issue tracker. Thank you very much!
 
   - #### Archives
 
-    This is a precise description of how to download the latest archive containing the prebuilt application from the Github releases page, how to extract it and how to set up application icons and shortcuts. You can also follow the procedure by performing the same tasks via your desktop environment's GUI, just read the comments above each command listed below.
+    Regular archives (gzipped tarballs) of the latest release can be found on the [Github releases page][streamlink-twitch-gui-releases].
 
-    **Example on Ubuntu 18.04:**
+    Download the archive that is matching your system's architecture (eg. "linux64" for x86_64 systems) and extract it to any directory you want. After extracting, execute the included `add-menuitem.sh` shell script once, so that app icons and menu entries get installed (`remove-menuitem.sh` will remove them). This can be done as a regular user, or as root, so that app icons and menu entries get installed system-wide.
 
-    ```bash
-    # Since this is not a regular installation via package management,
-    # install- and runtime dependencies might need to be installed on
-    # your system first in order to be able to follow this guide and to
-    # be able to run Streamlink Twitch GUI. This depends on your distro
-    # and the already installed packages. On Ubuntu 18.04, all necessary
-    # packages should already be installed by default.
-
-    # First, download the latest archive from the Github releases page:
-    # https://github.com/streamlink/streamlink-twitch-gui/releases/latest
-    # You can do this by using your web browser, curl, wget, etc.
-    # Here, we're using curl and are downloading the file into the current
-    # directory. Replace $VERSION with the latest version, eg. "v1.6.0".
-    curl -JLO "https://github.com/streamlink/streamlink-twitch-gui/releases/download/$VERSION/streamlink-twitch-gui-$VERSION-linux64.tar.gz"
-
-    # Make sure that /opt exists, where the archive will be extracted.
-    # Any other path is fine, too, but you'll have to replace it in the
-    # following commands as well. Using sudo may then not be required.
-    sudo mkdir /opt
-
-    # Extract the downloaded archive. Replace $VERSION again.
-    sudo tar -xzvf "streamlink-twitch-gui-$VERSION-linux64.tar.gz" -C /opt
-
-    # In order to install the app icons and to generate a menu shortcut,
-    # simply run the also included "add-menuitem.sh" script. To uninstall
-    # them later on, run the "remove-menuitem.sh" script.
-    # Running the script(s) as root will perform the action system-wide.
-    sudo /opt/streamlink-twitch-gui/add-menuitem.sh
-
-    # You're done!
-    # Now you can launch Streamlink Twitch GUI via the menu shortcut.
-    # If you prefer starting it via the shell, create a soft link:
-    sudo ln -s /opt/streamlink-twitch-gui/start.sh /usr/bin/streamlink-twitch-gui
-    ```
+    Then simply run the `streamlink-twitch-gui` executable or use the newly added menu entry to launch the application.
 
 - ### Building from source
 
@@ -232,5 +197,5 @@ See the [Streamlink website][streamlink-install] for a list of additional instal
 [homebrew-streamlink-twitch-gui]: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/streamlink-twitch-gui.rb "Streamlink Twitch GUI homebrew cask"
 [aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR stable package"
 [aur-streamlink-twitch-gui-git]: https://aur.archlinux.org/packages/streamlink-twitch-gui-git "Streamlink Twitch GUI AUR development package"
-[eopkg-streamlink-twitch-gui]: https://dev.solus-project.com/source/streamlink-twitch-gui/ "Streamlink Twitch GUI Solus package"
-[todo-packages]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/TODO.md#linux-packages
+[eopkg-streamlink-twitch-gui]: https://dev.getsol.us/source/streamlink-twitch-gui/ "Streamlink Twitch GUI Solus package"
+[custom-package-repo-experiment]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
