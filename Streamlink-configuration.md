@@ -1,50 +1,44 @@
 ## Selecting a streaming provider
 
-Streamlink Twitch GUI supports both **Streamlink** and **Livestreamer** as streaming providers.
+**Support for Livestreamer has been dropped in November 2019 in the `1.9.0` release.**  
+See the [[installation wiki page|installation]] for the available Streamlink installation methods.
 
-**Please be aware that support for Livestreamer will be dropped in the future since Livestreamer won't receive updates anymore.** See the [[installation wiki page|installation]] for the available Streamlink installation methods.
+If Streamlink has been installed correctly, Streamlink Twitch GUI should be able to automatically select the right configuration and everything will work out of the box.
 
-If Streamlink (or Livestreamer) have been installed correctly, Streamlink Twitch GUI should be able to automatically select the right configuration and everything will work out of the box.
+In case Streamlink Twitch GUI is not able to automatically choose the correct configuration or if Streamlink has been installed in a different way, custom settings need to be applied. This means either defining custom streaming provider paths in the settings menu or adjusting the system's `PATH` environment variable (the Streamlink installers on Windows automatically do that).
 
-In case Streamlink Twitch GUI is not able to automatically choose the correct configuration or if Streamlink (or Livestreamer) has been installed in a different way, custom settings need to be applied. This means either defining custom streaming provider paths in the settings menu or adjusting the system's `PATH` environment variable (the Streamlink installers on Windows automatically do that).
-
-
-- ### `Streamlink (Windows)` (default on Windows - new)
-
-  Requires a Streamlink version `>=1.1.0`, installed via Streamlink's Windows installer or via `pip` (Streamlink wheel).
-  
-  Uses the newly added `streamlinkw` executable instead of needing to resolve the python executable and Streamlink entry script file.
-
-  By default, Streamlink Twitch GUI will try to find `streamlinkw.exe` in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if Streamlink has been installed in a different location.
 
 - ### `Streamlink` (default)
 
-  Requires a working Python installation that is compatible with Streamlink (the Streamlink installers on Windows already bundle a local Python environment). 
-
-  **Please note**  
-  Users of Windows who are unable to find the Streamlink python script need to upgrade to the latest Streamlink and Streamlink Twitch GUI release and use the `Streamlink (Windows)` streaming provider instead. This is due to a packaging change of Streamlink on Windows, as described in this thread:  
-  https://github.com/streamlink/streamlink-twitch-gui/issues/618
+  Requires a Streamlink version of at least `1.4.0`.
   
-  Please make sure that Streamlink's Python script (`streamlink-script.py` on Windows, `streamlink` on macOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path (relative or absolute) needs to be set if both methods failed, eg. when using a different Python environment.
+  On Windows, Streamlink Twitch GUI will look for the `streamlinkw` executable instead of `streamlink` (notice the trailing `w`), so that no command line window will pop up when launching a stream.
   
-  By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python script). If this method failed, then it will try to resolve the Python executable (`pythonw.exe` on Windows, `python` on macOS/Linux) by using the `PATH` environment variable and the list of known default locations, like described above.
+  By default, Streamlink Twitch GUI will try to find the executable in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
+
+- ### `Streamlink (Python)`
+
+  Requires a Streamlink version of at least `1.4.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
   
-  Users of Streamlink portable on Windows need to explicitly choose both the Python executable and Streamlink Python script, located in the sub directories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
+  This provider config has been renamed in the `1.10.0` release and was the default selection prior to that (a detailed explanation for this change can be read [here](https://github.com/streamlink/streamlink-twitch-gui/issues/718#issuecomment-629661726)). Using the new default provider will be much easier in most cases, as it only looks for a single executable, so please be aware of that.
+  
+  If you still decide to use this provider config, then please make sure that Streamlink's Python entry script file (`streamlink-script.py` on Windows, `streamlink` on macOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
+  
+  By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python entry script file). If this method failed, then it will try to resolve the system's global Python executable (`pythonw.exe` on Windows, `python` on macOS/Linux) by looking at the `PATH` environment variable and the list of known default locations, like described above.
+  
+  Users of Streamlink portable on Windows who choose this streaming provider config need to explicitly choose both the Python executable and Streamlink Python script, located in the sub directories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
 
-- ### `Livestreamer`
 
-  The Livestreamer equivalent of the Streamlink option. On Windows, this needs to be selected if Livestreamer has been installed via `python-pip`.
+#### Unexpected version check output error
 
-- ### `Livestreamer (Standalone)` (Windows only)  
+To be able to launch any streams, Streamlink Twitch GUI first needs to validate the streaming provider config. After resolving all the file paths, it'll execute Streamlink and will check its version, so that it can know that all features are available. In case the streaming provider has been misconfigured or if Streamlink itself is not working correctly, the output of the version check will either be an error message or random garbage data and Streamlink Twitch GUI won't be able to interpret it as a version string. This is where the error messages comes from.
 
-  Requires Livestreamer to be installed via the Livestreamer Windows installer.  
-
-  Please make sure that the Livestreamer executable (`livestreamer.exe`) can be found in the system's `PATH` environment variable. If it can't be found, Streamlink Twitch GUI will look for this file in a list of known default locations. If Livestreamer has been installed in a different location that can't be automatically resolved, a custom path needs to be set.
+If you run into this problem, please make sure that you have set the correct streaming provider paths (if custom paths are needed) and that Streamlink itself is working correctly. To debug this on your own, please execute Streamlink from the command line shell with the `--version` parameter and check its output.
 
 
 ## Config file
 
-The configuration of Streamlink/Livestreamer is a mix between parameters set in the Streamlink/Livestreamer [config file][config-file] and parameters generated by Streamlink Twitch GUI when launching a stream.
+The configuration of Streamlink is a mix between parameters set in the Streamlink [config file][config-file] and parameters generated by Streamlink Twitch GUI when launching a stream.
 
 **Using the config file is not recommended.** All required options and custom parameters can be selected/added in the settings menu of Streamlink Twitch GUI instead of defining those in the config file. Using the config file may introduce unwanted side effects.
 
@@ -93,9 +87,9 @@ Stream qualities can be chosen in the `Source`, `High`, `Medium`, `Low` and `Aud
 
 Since summer 2016, new explicit stream qualities (eg. 1080p60) have been added by Twitch *in addition* to the old quality names (eg. source). Streamlink Twitch GUI will try to map the new quality names to the old ones, so that the same qualities and stream bitrates can be used between streams with different quality names.
 
-A new quality mapping system has been added in the `1.3.0` release to fix the ongoing issues with non-matching stream qualities. This new system is exclusive to Streamlink and Livestreamer is not supported due to its broken quality name parser.
+A new quality mapping system has been added in the `1.3.0` release to fix the ongoing issues with non-matching stream qualities by Streamlink when Livestreamer was still supported.
 
-The new system utilizes Streamlink's *working* quality name parser and the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter. Qualities are now mapped by defining a list of unwanted names which are **excluded** instead of included in the quality selection. All remaining unfiltered qualities will be selected by the `best` (or `worst`) selector alias. Since whole ranges of qualities can be defined, single names don't need to be explicitly listed anymore, which ensures a future-proof selection as long as Streamlink is able to correctly parse the quality names.
+The new system utilizes Streamlink's quality name parser and the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter. Qualities are now mapped by defining a list of unwanted names which are **excluded** instead of included in the quality selection. All remaining unfiltered qualities will be selected by the `best` (or `worst`) selector alias. Since whole ranges of qualities can be defined, single names don't need to be explicitly listed anymore, which ensures a future-proof selection as long as Streamlink is able to correctly parse the quality names.
 
 The stream quality preset list is made of two columns per row: The first column is being used by the [`--stream-sorting-excludes`][stream-sorting-excludes] parameter, the second column represents the actual quality selection. Please see the parameter documentation for a list of available operators in the exclusion list.  
 Qualities can't be excluded in the "Source" and "Audio only" presets, because the selectors will already match the desired quality. Please notice the quality definitions with and without an FPS value. Quality names without an FPS value are used by Twitch if a broadcaster is using an uncommon refresh rate.
