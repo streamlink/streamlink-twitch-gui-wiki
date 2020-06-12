@@ -1,18 +1,8 @@
-Please follow the installation instructions for **both applications**:
+## PLEASE NOTE
 
-**Streamlink Twitch GUI** requires **Streamlink** to be installed on your system in order to be able to launch streams.
+**Streamlink Twitch GUI** requires **Streamlink** to be installed on the system in order to be able to launch streams.
 
-- [**Streamlink**](#streamlink) (Command Line Interface)  
-  - [Windows](#windows)
-  - [macOS](#macos)
-  - [Linux](#linux)
-  - [Via Python PIP](#via-python-pip)
-  - [Building from source](#building-from-source)
-- [**Streamlink Twitch GUI**](#streamlink-twitch-gui) (Graphical User Interface)  
-  - [Windows](#windows-1)
-  - [macOS](#macos-1)
-  - [Linux](#linux-1)
-  - [Building from source](#building-from-source-1)
+Please follow the install instructions for **both applications**.
 
 
 ---
@@ -20,69 +10,7 @@ Please follow the installation instructions for **both applications**:
 
 ## Streamlink
 
-See the [Streamlink website][streamlink-install] for a list of additional installation methods.
-
-- ### Windows
-
-  - #### Installer
-
-    **Stable**  
-    Download the installer of Streamlink's latest stable release from the [Github releases page][streamlink-releases].  
-    *This is the preferred method.*
-
-    **Development**  
-    Download the installer of Streamlink's latest nightly build from the [Streamlink website][streamlink-windows].  
-    *This may cause issues in cases where Streamlink has introduced changes which Streamlink Twitch GUI doesn't know about yet.*
-
-    Please note that the [Visual C++ Redistributable package][vc-redist] needs to be installed on systems using a Windows version prior to 10.
-
-  - #### Portable
-
-    Download one of the portable versions from the [Streamlink website][streamlink-portable].  
-    *These are non-official side projects and may cause issues in combination with Streamlink Twitch GUI.*
-
-  - #### Packages
-
-    [Chocolatey][chocolatey-streamlink] - *The package manager for Windows*
-
-    ```bash
-    choco install streamlink
-    ```
-
-  Other available options can be found on the [Streamlink website][streamlink-install].
-
-- ### macOS
-
-  - #### Packages
-
-    [Homebrew][homebrew-streamlink] - *The missing package manager for macOS*
-
-    ```bash
-    brew install streamlink
-    ```
-
-- ### Linux
-
-  - #### Packages
-
-    Visit the [Streamlink website][streamlink-install] to see a list of available packages for your Linux distribution.
-
-- ### Via Python PIP
-
-  This requires an already installed Python environment on your system and Python's package manager `pip` needs to be available. Using pip may not be the ideal solution on each system, as installing Python packages globally may conflict with the system's native package manager. Installing Python packages locally may require an upgrade of the user's `PATH` environment variable.
-
-  ```bash
-  # Option 1: install globally (system-wide)
-  sudo pip install --upgrade streamlink
-  # Option 2: install locally (current user)
-  pip install --user --upgrade streamlink
-  # Option 3: install development version locally (current user)
-  pip install --user --upgrade 'git+https://github.com/streamlink/streamlink.git@master'
-  ```
-
-- ### Building from source
-
-  See the [Streamlink website][source-streamlink].
+Check the [Streamlink install documentation][streamlink-install] for a detailed list of all available installation methods on the supported operating systems.
 
 
 ---
@@ -183,18 +111,12 @@ See the [Streamlink website][streamlink-install] for a list of additional instal
 
 
 [streamlink-install]: https://streamlink.github.io/install.html "Streamlink installation"
-[streamlink-windows]: https://streamlink.github.io/install.html#windows-binaries "Streamlink Windows binaries"
-[streamlink-portable]: https://streamlink.github.io/install.html#windows-portable-version "Streamlink portable on Windows"
-[streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink Windows installer"
+[streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink releases"
 [streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
 [vc-redist]: https://www.microsoft.com/en-us/download/details.aspx?id=48145 "Visual C++ Redistributable"
-[pypi-streamlink]: https://pypi.org/project/streamlink/ "Streamlink Python package"
-[source-streamlink]: https://streamlink.github.io/install.html#source-code "Building Streamlink"
 [source-streamlink-twitch-gui]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building "Building Streamlink Twitch GUI"
-[chocolatey-streamlink]: https://chocolatey.org/packages/streamlink "Streamlink chocolatey package"
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
-[homebrew-streamlink]: https://formulae.brew.sh/formula/streamlink "Streamlink homebrew package"
-[homebrew-streamlink-twitch-gui]: https://github.com/Homebrew/homebrew-cask/blob/master/Casks/streamlink-twitch-gui.rb "Streamlink Twitch GUI homebrew cask"
+[homebrew-streamlink-twitch-gui]: https://formulae.brew.sh/cask/streamlink-twitch-gui "Streamlink Twitch GUI homebrew cask"
 [aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR stable package"
 [aur-streamlink-twitch-gui-git]: https://aur.archlinux.org/packages/streamlink-twitch-gui-git "Streamlink Twitch GUI AUR development package"
 [eopkg-streamlink-twitch-gui]: https://dev.getsol.us/source/streamlink-twitch-gui/ "Streamlink Twitch GUI Solus package"
