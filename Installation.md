@@ -57,9 +57,30 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 
 - ### Linux
 
+  - #### AppImage
+
+    **Not yet available in the current release (v1.10.0)**
+
+    <details>
+    <summary>What are AppImages?</summary>
+    AppImages are portable apps which are independent of the distro and package management. No root permissons are required for installing and no files need to be manually extracted from a compressed tarball, just set the executable flag on the AppImage file and run it, either from the command line shell or graphical file browser.
+
+    Note: Check out [AppImageLauncher][appimagelauncher], which automates the setup and system integration of AppImages. AppImageLauncher may also be available via your distro's package management.
+    </details>
+
+    Download the AppImage which is matching your system's architecture from the [Github releases page][streamlink-twitch-gui-releases] and optionally compare checksums.
+
+    ```bash
+    # make AppImage file executable
+    # note that AppImage release file names include the release version
+    chmod +x ./streamlink-twitch-gui-v123.45.67-x86_64.AppImage
+    # run the app
+    ./streamlink-twitch-gui-v123.45.67-x86_64.AppImage
+    ```
+
   - #### Arch Linux, Manjaro, etc. (AUR)
 
-    [Stable][aur-streamlink-twitch-gui]
+    [`streamlink-twitch-gui`][aur-streamlink-twitch-gui]
 
     ```bash
     # install via your AUR helper of choice, eg. yay
@@ -71,7 +92,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     makepkg --install --syncdeps --cleanbuild
     ```
 
-    [Development][aur-streamlink-twitch-gui-git]
+    [`streamlink-twitch-gui-git`][aur-streamlink-twitch-gui-git]
 
     ```bash
     # install via your AUR helper of choice, eg. yay
@@ -83,9 +104,17 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     makepkg --install --syncdeps --cleanbuild
     ```
 
+  - #### NixOS
+
+    [`streamlink-twitch-gui-bin`][nixos-streamlink-twitch-gui-bin]
+
+    ```bash
+    nix-env -iA nixos.streamlink-twitch-gui-bin
+    ```
+
   - #### Solus (EOPKG)
 
-    [Stable][eopkg-streamlink-twitch-gui]
+    [`streamlink-twitch-gui`][eopkg-streamlink-twitch-gui]
 
     ```bash
     sudo eopkg install streamlink-twitch-gui
@@ -101,7 +130,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 
     Regular archives (gzipped tarballs) of the latest release can be found on the [Github releases page][streamlink-twitch-gui-releases].
 
-    Download the archive that is matching your system's architecture (eg. "linux64" for x86_64 systems) and extract it to any directory you want. After extracting, execute the included `add-menuitem.sh` shell script once, so that app icons and menu entries get installed (`remove-menuitem.sh` will remove them). This can be done as a regular user, or as root, so that app icons and menu entries get installed system-wide.
+    Download the archive that is matching your system's architecture (eg. "linux64" for x86_64 systems), optionally compare checksums and extract it to any directory you want. After extracting, execute the included `add-menuitem.sh` shell script once, so that app icons and menu entries get installed (`remove-menuitem.sh` will remove them). This can be done as a regular user, or as root, so that app icons and menu entries get installed system-wide.
 
     Then simply run the `streamlink-twitch-gui` executable or use the newly added menu entry to launch the application.
 
@@ -119,5 +148,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [homebrew-streamlink-twitch-gui]: https://formulae.brew.sh/cask/streamlink-twitch-gui "Streamlink Twitch GUI homebrew cask"
 [aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR stable package"
 [aur-streamlink-twitch-gui-git]: https://aur.archlinux.org/packages/streamlink-twitch-gui-git "Streamlink Twitch GUI AUR development package"
+[nixos-streamlink-twitch-gui-bin]: https://search.nixos.org/packages?show=streamlink-twitch-gui-bin&query=streamlink "Streamlink Twitch GUI NixOS binary package"
 [eopkg-streamlink-twitch-gui]: https://dev.getsol.us/source/streamlink-twitch-gui/ "Streamlink Twitch GUI Solus package"
 [custom-package-repo-experiment]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
+[appimagelauncher]: https://github.com/TheAssassin/AppImageLauncher
