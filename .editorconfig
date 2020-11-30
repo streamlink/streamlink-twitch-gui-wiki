@@ -1,0 +1,22 @@
+# http://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+
+# global file encoding
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# shell scripts
+[**.sh]
+indent_style = tab
+
+# markdown files
+[**.md]
+trim_trailing_whitespace = false
