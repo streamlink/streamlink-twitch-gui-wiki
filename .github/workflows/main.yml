@@ -1,0 +1,20 @@
+name: Deploy wiki
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    if: github.repository == 'streamlink/streamlink-twitch-gui-wiki'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: deploy
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          git push --force \
+            "https://${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY%-wiki}.wiki.git" \
+            "${GITHUB_REF#refs/heads/}:master"
