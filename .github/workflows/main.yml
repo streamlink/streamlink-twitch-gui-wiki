@@ -16,5 +16,5 @@ jobs:
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         run: |
           git push --force \
-            "https://${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY%-wiki}.wiki.git" \
+            "https://streamlink-bot:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY%-wiki}.wiki.git" \
             "${GITHUB_REF#refs/heads/}:master"
