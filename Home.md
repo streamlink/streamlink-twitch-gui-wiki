@@ -1,5 +1,6 @@
-Welcome to the [Streamlink Twitch GUI](https://github.com/streamlink/streamlink-twitch-gui) wiki!  
-Feel free to contribute if you have useful informations you'd like to share with other users.
+**Welcome to the [Streamlink Twitch GUI](https://github.com/streamlink/streamlink-twitch-gui) wiki!**  
+
+[Found a mistake or got something useful to share? Then please open a pull request with your changes!](https://github.com/streamlink/streamlink-twitch-gui-wiki)
 
 
 ## Setup
