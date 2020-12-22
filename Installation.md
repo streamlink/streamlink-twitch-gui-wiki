@@ -59,8 +59,6 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 
   - #### AppImage
 
-    **Not yet available in the current release (v1.10.0)**
-
     <details>
     <summary>What are AppImages?</summary>
     AppImages are portable apps which are independent of the distro and package management. No root permissons are required for installing and no files need to be manually extracted from a compressed tarball, just set the executable flag on the AppImage file and run it, either from the command line shell or graphical file browser.
@@ -68,7 +66,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     Note: Check out [AppImageLauncher][appimagelauncher], which automates the setup and system integration of AppImages. AppImageLauncher may also be available via your distro's package management.
     </details>
 
-    Download the AppImage which is matching your system's architecture from the [Github releases page][streamlink-twitch-gui-releases] and optionally compare checksums.
+    Download the AppImage which matches your system's architecture from the [Github releases page][streamlink-twitch-gui-releases] and optionally compare checksums.
 
     ```bash
     # make AppImage file executable
