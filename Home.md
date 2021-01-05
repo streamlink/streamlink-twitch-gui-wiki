@@ -10,7 +10,6 @@
 - [[Player configuration|player-configuration]]
 - [[Chat configuration|chat-configuration]]
 - [[Recommendations|recommendations]]
-- [[Updating from Livestreamer Twitch GUI|data-migration]]
 
 
 ## Usage
