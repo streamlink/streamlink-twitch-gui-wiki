@@ -30,7 +30,7 @@ Since I've been getting a lot of questions regarding the best possible viewing e
 
 ## Player configuration
 
-Instead of using VLC, which is Streamlink's default player, [**I strongly recommend using MPV**](https://mpv.io/) instead, as it is the overall better player.
+Instead of using VLC, which is the default player chosen by Streamlink, [**I strongly recommend using MPV**](https://mpv.io/), as it is the overall better player.
 
 The problem with MPV however is that it gets configured via command line parameters or via config files, and this may turn off new or inexperienced users.
 
