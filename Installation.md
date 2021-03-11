@@ -48,7 +48,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     [Homebrew cask][homebrew-streamlink-twitch-gui] - *The missing package manager for macOS*
 
     ```bash
-    brew cask install streamlink-twitch-gui
+    brew install --cask streamlink-twitch-gui
     ```
 
   - #### Archive
