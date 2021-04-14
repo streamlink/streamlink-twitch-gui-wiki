@@ -126,7 +126,7 @@ Examples:
 
 Streamlink Twitch GUI is built on top of the NW.js platform, a Node.js powered version of Chromium. This means that all NW.js and Chromium related parameters can be used. These parameters are by definition launch parameters. More information about the available parameters can be found on the following sites. Please note that certain parameters either won't work or should not be used at all when launching NW.js applications.
 
-- [NW.js documentation (http only)](http://docs.nwjs.io/en/latest/References/Command%20Line%20Options/)
+- [NW.js documentation](https://docs.nwjs.io/en/latest/References/Command%20Line%20Options/)
 - [Peter Beverloo's List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/)
 - [NW.js/Chromium source code (nw42-log:/chrome/common/chrome_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/chrome/common/chrome_switches.cc)
 - [NW.js/Chromium source code (nw42-log:/content/public/common/content_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/content/public/common/content_switches.cc)
