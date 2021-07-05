@@ -8,9 +8,8 @@ Translating Streamlink Twitch GUI
     3. [Format](#23-format)
     4. [Structure](#24-structure)
     5. [Variables](#25-variables)
-    6. [Pluralization](#26-pluralization)
-    7. [Missing translations](#27-missing-translation)
-    8. [Hotkeys](#28-hotkeys)
+    6. [Missing translations](#26-missing-translations)
+    7. [Hotkeys](#27-hotkeys)
 3. [Translating](#3-translating)
     1. [Setup](#31-setup)
     2. [Adding new translations](#32-adding-new-translations)
@@ -28,7 +27,7 @@ Translating Streamlink Twitch GUI
 
 This guide describes how to help translating Streamlink Twitch GUI. If you're interested in improving or adding new translations, even if you don't have any programming experience, please continue reading, as this guide will try to cover all of the basics, as well as the setup and workflow.
 
-The minimal requirements for writing and contributing translations is having a little bit of knowledge of Git, how to use it and how to submit pull requests on the project's GitHub repository. If you don't know how version control with Git works, please take a look at the online ["Pro Git" book](https://git-scm.com/book/en/v2) or the [help section on GitHub](https://help.github.com/) and get yourself comfortable with it. The project's [contributing guide](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#pull-requests) also explains how to fork, clone and branch and how to create pull requests. If you're having trouble or any questions, don't hesitate to ask on the project's [Gitter.im channel](https://gitter.im/streamlink/streamlink-twitch-gui) or [GitHub issue tracker](https://github.com/streamlink/streamlink-twitch-gui/issues).
+The minimal requirements for writing and contributing translations is having a little bit of knowledge of Git, how to use it and how to submit pull requests on the project's GitHub repository. If you don't know how version control with Git works, please take a look at the online ["Pro Git" book](https://git-scm.com/book/en/v2) or the [help section on GitHub](https://help.github.com/) and get yourself comfortable with it. The project's [contributing guide](https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#pull-requests) also explains how to fork, clone and branch, and how to create pull requests. If you're having trouble or any questions, don't hesitate to ask on the project's [Gitter.im channel](https://gitter.im/streamlink/streamlink-twitch-gui) or [GitHub issue tracker](https://github.com/streamlink/streamlink-twitch-gui/issues).
 
 Your help is very much appreciated, thank you!
 
@@ -83,109 +82,124 @@ Already existing comments from the English template should always be kept, as th
 
 ### 2.4 Structure
 
-All currently included languages can be found in the `src/config/locales.json` file, which is used for dynamically importing all translations and language specific configurations. The translation and config files themselves are located in the `src/app/locales/` directory.
+All currently included languages can be found in the `src/config/locales.json` file, which is used for dynamically importing all translations and language specific configurations. The translation files themselves are located in the `src/app/locales/` directory.
 
-Each locale subfolder consists of a `config.js` file and multiple `.yml` files, which all represent a logical translation namespace, based on the application structure and where their translations are being included and loaded from. All YAML files contain a set of nested paths (trees/objects) of translation path names. These paths, in combination with their namespace, are used for defining a specific translation string, eg. `settings.menu.header`, which translates to "Settings" in the `en` locale. The locale's `config.js` file is used for defining the language configuration, like pluralization rules for example.
+Each locale subfolder consists of multiple `.yml` files which all represent a logical translation namespace, based on the application structure and where their translations are included and loaded from. All YAML files contain a set of nested translation path names. These paths, in combination with their namespace (file name), are used for defining a specific translation string, eg. `settings.menu.header`, which the application uses to translate the "Settings" menu title.
 
 ### 2.5 Variables
 
-There are two different kinds of variable translation strings: ones which include regular `{{variables}}` and special ones, which are used for formatting MomentJS strings, like times and dates.
+Translation strings sometimes include `{variables}` which are replaced with dynamic values provided by the application code. There are different variable types with special syntax ([ICU message syntax](https://formatjs.io/docs/core-concepts/icu-syntax)) and formats, depending on the type.
 
-#### Regular variables
+When using a special variable type, the syntax is `{variable, type, format-or-parameters}`.
 
-Regular variables are simple text substitutions and have logical names based on the English text template. This should make it clear when a variable is representing a number, version string, or when it is based on user data, like a name of a channel for example. Using those variables in a translation should be fairly simple. Some other variables are a bit more complex though, and are based on other translations, which can potentially make it a bit more difficult. These kinds of variables are mostly just simple words, like localized language names, but can also be the output of localized MomentJS strings, like "a day" or "3 months". Please make sure that all possible values of all variables fit into the translated texts. If a variable is based on MomentJS output, it is annotated and the [documentation](https://momentjs.com/docs/#/displaying/) of the respective method call should be read. The localization config of MomentJS can be found [here](https://github.com/moment/moment/tree/master/src/locale).
-
-#### MomentJS formats
-
-The second type of variable translations are formattable MomentJS strings (which are always annotated). These strings work differently, as they are used as the parameter for MomentJS' `format` method instead. Please see the MomentJS [format documentation](https://momentjs.com/docs/#/displaying/format/) for a list of all available variables and how to escape regular text.  
- To ensure that a specific translation string is using consistent formats across all languages (eg. short or long time and date formats), localized format variables like `LTS` or `LLLL` should be used. If those don't fit grammar-wise, custom formats can of course be defined, as long as they are similar to the intended localized formats.
-
-#### Examples
+#### Simple text substitution
 
 ```yaml
-# en-gb/messages.yml
-welcome: "Welcome, {{user}}"
-remaining: "Only {{time}} left"
-today: "dddd, [the] Do [of] MMMM"
+# en/messages.yml
+welcome: "Welcome, {user}"
+```
 
+```yml
 # de/messages.yml
-welcome: "Willkommen, {{user}}"
-remaining: "Nur noch {{time}} übrig"
-today: "dddd, [der] DD. MMMM"
+welcome: "Willkommen, {user}"
 ```
 
 ```js
-const time = new Moment().to( twoMonths, true );
+intl.locale = [ "en" ];
+intl.t( "messages.welcome", { user: "Anonymous" } ) === "Welcome, Anonymous";
 
-// en-gb
-i18n.t( "messages.welcome", { user: "foo" } ) === "Welcome, foo";
-i18n.t( "messages.remaining", { time } ) === "Only 2 months left";
-new Moment().format( i18n.t( "messages.today" ) ) === "Monday, the 12th of March";
-
-// de
-i18n.t( "messages.welcome", { user: "foo" } ) === "Willkommen, foo";
-i18n.t( "messages.remaining", { time } ) === "Nur noch 2 Monate übrig";
-new Moment().format( i18n.t( "messages.today" ) ) === "Montag, der 12. März";
+intl.locale = [ "de" ];
+intl.t( "messages.welcome", { user: "Anonymous" } ) === "Willkommen, Anonymous";
 ```
 
-### 2.6 Pluralization
+#### Number formats
+
+Number formats vary between different languages. Variables of the type `number` will be formatted automatically, with optional parameters depending on the kind of number that's being translated.
+
+See [the `number` type explanation of FormatJS](https://formatjs.io/docs/core-concepts/icu-syntax#number-type) for more information.
+
+#### Date or time formats
+
+Similar to numbers, dates and times are described differently in different languages. Variables of the types `date` and `time` always have a special format name defined, eg. `full` or `short`, which is then used to find the most fitting format depending on the language. The same format name should be kept when translating, as it will carry the same information when being translated.
+
+See [the `date` and `time` type explanations of FormatJS](https://formatjs.io/docs/core-concepts/icu-syntax#date-type) for more information.
+
+```yml
+# en/channel.yml
+created: {created_at, date, full}
+online: {since, time, medium}
+```
+
+```yml
+# de/channel.yml
+created: {created_at, date, full}
+online: {since, time, medium}
+```
+
+```js
+intl.locale = [ "en" ];
+intl.t( "channel.created", { created_at: new Date() } ) === "Sunday, July 4, 2021";
+intl.t( "channel.online", { online: new Date() } ) === "01:33:37 PM";
+
+intl.locale = [ "de" ];
+intl.t( "channel.created", { created_at: new Date() } ) === "Sonntag, 4. Juli 2021";
+intl.t( "channel.online", { online: new Date() } ) === "13:33:37";
+```
+
+#### Pluralization
 
 Languages can have different pluralization rules. This makes it difficult when translations rely on variables with values of a certain quantity.
 
-Those pluralization rules are configured by the `config.js` file of each locale and are usually imported from the i18n library being used (`ember-i18n`), but can also be customized, if needed.
+Variables which require pluralization are of the type `plural` and have a set of certain formats defined, depending on the language and the variable's potential values:
 
-Translation strings which require pluralization are indicated by the usage of the special `{{count}}` variable and a subset of these special properties:
-
-- `zero` (*)
 - `one`
 - `two`
 - `few`
 - `many`
 - `other` (required - general plural form)
+- `=value` (special translations required by the app logic)
 
-Which properties are going to be used depends on the locale's pluralization rules, so not all properties need to be defined for each locale. For example, English and many other European languages only use `one` and `other`.
+Which parameters are going to be used depends on the language's pluralization rules, so not all parameters need to be defined for each locale. For example, English and many other European languages only use `one` and `other`. Fixed values are defined by the application's logic and always need to be included if they exist.
 
-(*) In some special cases, pluralized translations may statically reference their `zero` property, even if a locale doesn't define `zero` in its pluralization rules. This depends on how the translation string has been implemented, eg. when a zero value needs a different text. This is annotated with a comment.
+See [the `plural` type explanation of FormatJS](https://formatjs.io/docs/core-concepts/icu-syntax#plural-format) or the [plural rules](https://unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) of the Unicode Common Locale Data Repository for more information.
 
-See `ember-i18n`'s [pluralization wiki page](https://github.com/jamesarosen/ember-i18n/wiki/Doc:-Pluralization) or the [plural rules](https://unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) of the Unicode Common Locale Data Repository for more information.
+```yml
+# en/users.yml
+online: |
+    There {count, plural,
+        =0 {are no users}
+        one {is one user}
+        other {are # users}
+    } online right now!
+```
 
-#### Examples
-
-```yaml
-# en/fruits.yml
-#   English has the following pluralization rules:
-#   one: n==1
-#   other: n!=1
-apples:
-    one: "One apple"
-    other: "{{count}} apples"
-
-# fr/fruits.yml
-#   French has the following pluralization rules:
-#   one: n>=0 and n<2
-#   other: n<0 or n>=2
-apples:
-    one: "{{count}} pomme"
-    other: "{{count}} pommes"
+```yml
+# de/users.yml
+online: |
+    Zur Zeit {count, plural,
+        =0 {ist kein Nutzer}
+        one {ist ein Nutzer}
+        other {sind # Nutzer}
+    } online!
 ```
 
 ```js
-// en
-i18n.t( "fruits.apples", { count: 0 } ) === "0 apples";
-i18n.t( "fruits.apples", { count: 1 } ) === "One apple";
-i18n.t( "fruits.apples", { count: 2 } ) === "2 apples";
+intl.locale = [ "en" ];
+intl.t( "users.online", { count: 0 } ) === "There are no users online right now!";
+intl.t( "users.online", { count: 1 } ) === "There is one user online right now!";
+intl.t( "users.online", { count: 1000 } ) === "There are 1,000 users online right now!";
 
-// fr
-i18n.t( "fruits.apples", { count: 0 } ) === "0 pomme";
-i18n.t( "fruits.apples", { count: 1 } ) === "1 pomme";
-i18n.t( "fruits.apples", { count: 2 } ) === "2 pommes";
+intl.locale = [ "de" ];
+intl.t( "users.online", { count: 0 } ) === "Zur Zeit sind keine Nutzer online!";
+intl.t( "users.online", { count: 1 } ) === "Zur Zeit ist ein Nutzer online!";
+intl.t( "users.online", { count: 1000 } ) === "Zur Zeit sind 1.000 Nutzer online!";
 ```
 
-### 2.7 Missing translations
+### 2.6 Missing translations
 
-If a translation is missing and can't be found, `ember-i18n` will try to use a fallback locale for looking it up. For locales with a region subtag, their parent locale will be looked up first, otherwise, `en` will be used as a global fallback. Missing translations in the `en` locale (which is the developer's fault) result in a `Missing translation: {{path}}` message being shown.
+If a translation is missing and can't be found, `ember-intl` will try to use a fallback locale for looking it up. For locales with a region subtag, their parent locale will be looked up first, otherwise, `en` will be used as a global fallback. Missing translations in the `en` locale (which is the developer's fault) result in a `Missing translation: {path}` message being shown.
 
-### 2.8 Hotkeys
+### 2.7 Hotkeys
 
 Another special part of each locale are hotkey translations, which are shown in tooltips or in the hotkeys settings menu. Hotkeys consist of optional modifier keys, like `ctrlKey`, `shiftKey`, `altKey` or `metaKey`, and special key codes, like for example `KeyA` or `ArrowLeft`, which may need to be translated or shortened in order to sound more natural.
 
@@ -275,14 +289,6 @@ Once the new language has been registered, create a new locale directory in `src
 ```bash
 cp -r src/app/locales/en src/app/locales/LANGUAGECODE
 ```
-
-#### Language configuration
-
-Open `config.js` from the new locale folder and import the correct configuration file provided by `ember-i18n`. If `ember-i18n` doesn't provide a pre-defined configuration, import another one from `ember-i18n` that matches the desired config or define it yourself by using the available ones as a template.
-
-#### MomentJS localizations
-
-MomentJS localizations should be loaded automatically. If not, which is quite unlikely, add them to the `config.js` file by importing from `moment` and follow the localization guidelines of MomentJS. Already existing localization configs of MomentJS can also be found [here](https://github.com/moment/moment/tree/master/src/locale).
 
 #### Language icon
 
