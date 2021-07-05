@@ -126,14 +126,14 @@ See [the `date` and `time` type explanations of FormatJS](https://formatjs.io/do
 
 ```yml
 # en/channel.yml
-created: {created_at, date, full}
-online: {since, time, medium}
+created: "{created_at, date, full}"
+online: "{since, time, medium}"
 ```
 
 ```yml
 # de/channel.yml
-created: {created_at, date, full}
-online: {since, time, medium}
+created: "{created_at, date, full}"
+online: "{since, time, medium}"
 ```
 
 ```js
