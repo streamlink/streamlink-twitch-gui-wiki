@@ -10,7 +10,7 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
 - ### `Streamlink` (default)
 
-  Requires a Streamlink version of at least `1.4.0`.
+  Requires a Streamlink version of at least `2.0.0`.
   
   On Windows, Streamlink Twitch GUI will look for the `streamlinkw` executable instead of `streamlink` (notice the trailing `w`), so that no command line window will pop up when launching a stream.
   
@@ -18,7 +18,7 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
 - ### `Streamlink (Python)`
 
-  Requires a Streamlink version of at least `1.4.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
+  Requires a Streamlink version of at least `2.0.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
   
   This provider config has been renamed in the `1.10.0` release and was the default selection prior to that (a detailed explanation for this change can be read [here](https://github.com/streamlink/streamlink-twitch-gui/issues/718#issuecomment-629661726)). Using the new default provider will be much easier in most cases, as it only looks for a single executable, so please be aware of that.
   
