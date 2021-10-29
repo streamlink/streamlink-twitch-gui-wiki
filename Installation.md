@@ -163,7 +163,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [vc-redist]: https://www.microsoft.com/en-us/download/details.aspx?id=48145 "Visual C++ Redistributable"
 [source-streamlink-twitch-gui]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building "Building Streamlink Twitch GUI"
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
-[winget-streamlink-twitch-gui]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/Streamlink/StreamlinkTwitchGui "Streamlink Twitch GUI winget package"
+[winget-streamlink-twitch-gui]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/Streamlink/Streamlink/TwitchGui "Streamlink Twitch GUI winget package"
 [homebrew-streamlink-twitch-gui]: https://formulae.brew.sh/cask/streamlink-twitch-gui "Streamlink Twitch GUI homebrew cask"
 [aur-streamlink-twitch-gui-bin]: https://aur.archlinux.org/packages/streamlink-twitch-gui-bin "Streamlink Twitch GUI AUR binary package"
 [aur-streamlink-twitch-gui-git]: https://aur.archlinux.org/packages/streamlink-twitch-gui-git "Streamlink Twitch GUI AUR development package"
