@@ -12,21 +12,23 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
   Requires a Streamlink version of at least `2.0.0`.
   
-  On Windows, Streamlink Twitch GUI will look for the `streamlinkw` executable instead of `streamlink` (notice the trailing `w`), so that no command line window will pop up when launching a stream.
-  
-  By default, Streamlink Twitch GUI will try to find the executable in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
+  By default, Streamlink Twitch GUI will try to find Streamlink's executable in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
+
+  On Windows, Streamlink Twitch GUI will look for the `streamlinkw.exe` executable instead of `streamlink.exe` (notice the trailing `w`), so that no command line window will pop up when launching a stream.
+
+  On Linux when using the Streamlink AppImage (not to be confused with the AppImage of Streamlink Twitch GUI), the path to Streamlink's AppImage file needs to be set manually because AppImages can be stored anywhere and thus can't be found automatically by Streamlink Twitch GUI.
 
 - ### `Streamlink (Python)`
 
   Requires a Streamlink version of at least `2.0.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
   
-  This provider config has been renamed in the `1.10.0` release and was the default selection prior to that (a detailed explanation for this change can be read [here](https://github.com/streamlink/streamlink-twitch-gui/issues/718#issuecomment-629661726)). Using the new default provider will be much easier in most cases, as it only looks for a single executable, so please be aware of that.
+  This provider config has been renamed in the `1.10.0` release and was the default selection prior to that (a detailed explanation for this change can be read [here](https://github.com/streamlink/streamlink-twitch-gui/issues/718#issuecomment-629661726)). Using the new default provider is much easier in most cases, as it only looks for a single executable, so please be aware of that.
   
   If you still decide to use this provider config, then please make sure that Streamlink's Python entry script file (`streamlink-script.py` on Windows, `streamlink` on macOS/Linux) can be found in one of the directories listed in the system's `PATH` environment variable. Streamlink Twitch GUI also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
   
   By default, Streamlink Twitch GUI will try to use the Python environment Streamlink was built for (set in the [shebang][shebang] of the Python entry script file). If this method failed, then it will try to resolve the system's global Python executable (`pythonw.exe` on Windows, `python` on macOS/Linux) by looking at the `PATH` environment variable and the list of known default locations, like described above.
   
-  Users of Streamlink portable on Windows who choose this streaming provider config need to explicitly choose both the Python executable and Streamlink Python script, located in the sub directories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
+  Users of Streamlink portable on Windows who choose this streaming provider config need to explicitly choose both the Python executable and Streamlink Python script, located in the subdirectories of the Streamlink portable folder. The included Streamlink portable executable can not be used!
 
 
 #### Unexpected version check output error
