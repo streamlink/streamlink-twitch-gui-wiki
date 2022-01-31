@@ -84,15 +84,15 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 
   - #### Arch Linux, Manjaro, etc. (AUR)
 
-    [`streamlink-twitch-gui`][aur-streamlink-twitch-gui]
+    [`streamlink-twitch-gui-bin`][aur-streamlink-twitch-gui-bin]
 
     ```bash
     # install via your AUR helper of choice, eg. yay
-    yay -S streamlink-twitch-gui
+    yay -S streamlink-twitch-gui-bin
 
     # install via makepkg
-    git clone 'https://aur.archlinux.org/streamlink-twitch-gui'
-    cd streamlink-twitch-gui
+    git clone 'https://aur.archlinux.org/streamlink-twitch-gui-bin'
+    cd streamlink-twitch-gui-bin
     makepkg --install --syncdeps --cleanbuild
     ```
 
@@ -151,7 +151,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
 [winget-streamlink-twitch-gui]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/Streamlink/StreamlinkTwitchGui "Streamlink Twitch GUI winget package"
 [homebrew-streamlink-twitch-gui]: https://formulae.brew.sh/cask/streamlink-twitch-gui "Streamlink Twitch GUI homebrew cask"
-[aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR stable package"
+[aur-streamlink-twitch-gui-bin]: https://aur.archlinux.org/packages/streamlink-twitch-gui-bin "Streamlink Twitch GUI AUR binary package"
 [aur-streamlink-twitch-gui-git]: https://aur.archlinux.org/packages/streamlink-twitch-gui-git "Streamlink Twitch GUI AUR development package"
 [nixos-streamlink-twitch-gui-bin]: https://search.nixos.org/packages?show=streamlink-twitch-gui-bin&query=streamlink "Streamlink Twitch GUI NixOS binary package"
 [eopkg-streamlink-twitch-gui]: https://dev.getsol.us/source/streamlink-twitch-gui/ "Streamlink Twitch GUI Solus package"
