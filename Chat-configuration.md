@@ -13,11 +13,6 @@ Opens the chat in Chromium's or Google Chrome's so called "app mode". This remov
 A custom executable path needs to be set, if it can't be resolved via the included list of default install locations or via the system's `PATH` environment variable.
 
 
-### Internet Explorer (Windows)
-
-This is the equivalent of the app mode of Chromium / Google Chrome. Requires the `msie-minimal.vbs` script to be located in the application folder (included in the Windows releases).
-
-
 ### [Chatty][chatty]
 
 Uses the popular Java based chat application for Twitch. Please use a version greater than `0.8.2b2`, so single instance mode can be used.
