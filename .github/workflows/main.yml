@@ -19,5 +19,5 @@ jobs:
         run: |
           git config --unset 'http.https://github.com/.extraheader'
           git push --force \
-            "https://streamlink-bot:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY%-wiki}.wiki.git" \
+            "https://streamlinkbot:${DEPLOY_TOKEN}@github.com/${GITHUB_REPOSITORY%-wiki}.wiki.git" \
             "${GITHUB_REF#refs/heads/}:master"
