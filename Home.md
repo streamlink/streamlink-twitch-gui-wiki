@@ -15,7 +15,7 @@
 ## Usage
 
 - [[Watching streams|watching-streams]]
-- [[Embedded ads|embedded-ads]]
+- [Embedded ads](https://github.com/streamlink/streamlink-twitch-gui/issues/754)
 - [[Twitch.tv login|twitch.tv-login]]
 - [[Desktop notifications|desktop-notifications]]
 - [[Application parameters|parameters]]
