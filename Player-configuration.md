@@ -14,9 +14,9 @@ All presets can be individually configured and extended with custom player paths
 
 ## Custom player parameters
 
-Custom player parameters can be set if a player preset has been selected or if a custom player path has been set while not using a preset.
+Custom player parameters can be set if a player preset has been selected, or if a custom player path has been set while not using a preset.
 
-Streamlink's `{filename}` variable will automatically be appended to the parameters string if it is missing, which should be fine in most cases (see the [`--player-args`][player-args-param] Streamlink parameter documentation).
+If Streamlink's `{playerinput}` variable is missing from the player parameters string (see the [`--player-args`][player-args-param] Streamlink parameter documentation), then it will be appended to the end of the user input, which should be fine in most cases, as this is the parameter format which most players expect. If the player expects custom parameters after the input parameter, then `{playerinput}` must be set.
 
 Several variables related to the stream being watched are available.  
 **Please make sure to wrap variables in quotation marks (single or double).**  
@@ -27,7 +27,7 @@ Correct usage:
 
 #### Variables
 
-- **{channel}**  
+- **{name}**  
   The streamer's channel name
 - **{status}**  
   The title of the broadcast
