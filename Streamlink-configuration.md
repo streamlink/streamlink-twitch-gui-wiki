@@ -1,6 +1,5 @@
 ## Selecting a streaming provider
 
-**Support for Livestreamer has been dropped in November 2019 in the `1.9.0` release.**  
 See the [[installation wiki page|installation]] for the available Streamlink installation methods.
 
 If Streamlink has been installed correctly, Streamlink Twitch GUI should be able to automatically select the right configuration and everything will work out of the box.
@@ -10,7 +9,7 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
 - ### `Streamlink` (default)
 
-  Requires a Streamlink version of at least `2.0.0`.
+  Requires a Streamlink version of at least `6.0.0`.
   
   By default, Streamlink Twitch GUI will try to find Streamlink's executable in one of the directories listed in the system's `PATH` environment variable. It also includes a list of known default locations in case the file can't be resolved automatically. A custom path, relative or absolute, needs to be set if Streamlink has been installed in a different location.
 
@@ -20,7 +19,7 @@ In case Streamlink Twitch GUI is not able to automatically choose the correct co
 
 - ### `Streamlink (Python)`
 
-  Requires a Streamlink version of at least `2.0.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
+  Requires a Streamlink version of at least `6.0.0` and also requires a working Python installation that is compatible with Streamlink. The Windows installer of Streamlink already comes with its own Python environment.
   
   This provider config has been renamed in the `1.10.0` release and was the default selection prior to that (a detailed explanation for this change can be read [here](https://github.com/streamlink/streamlink-twitch-gui/issues/718#issuecomment-629661726)). Using the new default provider is much easier in most cases, as it only looks for a single executable, so please be aware of that.
   
