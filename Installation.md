@@ -20,14 +20,12 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 
 - ### Windows
 
-  *Requires at least Windows 7.*  
-  *Windows XP and Vista are not supported.*
+  *Requires at least Windows 10.*  
+  *Older versions of Windows are not supported.*
 
   - #### Installer
 
     A Windows installer is available on the [Github releases page][streamlink-twitch-gui-releases].
-
-    Please note that the [Visual C++ Redistributable package][vc-redist] needs to be installed on systems using a Windows version prior to 10.
 
   - #### Packages
 
@@ -152,7 +150,6 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [streamlink-install]: https://streamlink.github.io/install.html "Streamlink installation"
 [streamlink-releases]: https://github.com/streamlink/streamlink/releases "Streamlink releases"
 [streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
-[vc-redist]: https://www.microsoft.com/en-us/download/details.aspx?id=48145 "Visual C++ Redistributable"
 [source-streamlink-twitch-gui]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building "Building Streamlink Twitch GUI"
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
 [winget-streamlink-twitch-gui]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/Streamlink/Streamlink/TwitchGui "Streamlink Twitch GUI winget package"
