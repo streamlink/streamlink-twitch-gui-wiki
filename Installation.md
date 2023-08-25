@@ -128,6 +128,14 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     nix-env -iA nixos.streamlink-twitch-gui-bin
     ```
 
+  - #### Solus (EOPKG)
+
+    [`streamlink-twitch-gui`][eopkg-streamlink-twitch-gui]
+
+    ```bash
+    sudo eopkg install streamlink-twitch-gui
+    ```
+
   - #### Other packages
 
     Due to build- and license restrictions and/or traffic limitations, `deb` packages for Debian, Ubuntu/*buntu, Linux Mint, Elementary, etc. and `rpm` packages for Fedora, OpenSuse, etc. can't be created at the moment. An experiment with custom package repositories [was done in late 2016][custom-package-repo-experiment], but unfortunately it didn't work out properly.
@@ -159,5 +167,6 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR source package"
 [aur-mirror-repo]: https://github.com/streamlink/streamlink-twitch-gui-aur "Streamlink Twitch GUI AUR mirror repo"
 [nixos-streamlink-twitch-gui-bin]: https://search.nixos.org/packages?show=streamlink-twitch-gui-bin&query=streamlink "Streamlink Twitch GUI NixOS binary package"
+[eopkg-streamlink-twitch-gui]: https://github.com/solus-packages/streamlink-twitch-gui "Streamlink Twitch GUI Solus package"
 [custom-package-repo-experiment]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
 [appimagelauncher]: https://github.com/TheAssassin/AppImageLauncher
