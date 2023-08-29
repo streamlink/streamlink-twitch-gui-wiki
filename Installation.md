@@ -35,6 +35,13 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
     choco install streamlink-twitch-gui
     ```
 
+    [Scoop][scoop-streamlink-twitch-gui] - *A command-line installer for Windows*
+
+    ```bash
+    scoop bucket add extras
+    scoop install streamlink-twitch-gui
+    ```
+
     [Winget][winget-streamlink-twitch-gui] - *The Windows package manager*
 
     ```bash
@@ -160,6 +167,7 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [streamlink-twitch-gui-releases]: https://github.com/streamlink/streamlink-twitch-gui/releases "Streamlink Twitch GUI releases"
 [source-streamlink-twitch-gui]: https://github.com/streamlink/streamlink-twitch-gui/blob/master/CONTRIBUTING.md#developing-and-building "Building Streamlink Twitch GUI"
 [chocolatey-streamlink-twitch-gui]: https://chocolatey.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI chocolatey package"
+[scoop-streamlink-twitch-gui]: https://scoop.sh/#/apps?q=streamlink&s=0&d=1&o=true "Streamlink Twitch GUI Scoop package"
 [winget-streamlink-twitch-gui]: https://github.com/microsoft/winget-pkgs/tree/master/manifests/s/Streamlink/Streamlink/TwitchGui "Streamlink Twitch GUI winget package"
 [homebrew-streamlink-twitch-gui]: https://formulae.brew.sh/cask/streamlink-twitch-gui "Streamlink Twitch GUI homebrew cask"
 [aur-streamlink-twitch-gui-bin]: https://aur.archlinux.org/packages/streamlink-twitch-gui-bin "Streamlink Twitch GUI AUR binary package"
