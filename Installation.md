@@ -175,6 +175,6 @@ Check the [Streamlink install documentation][streamlink-install] for a detailed 
 [aur-streamlink-twitch-gui]: https://aur.archlinux.org/packages/streamlink-twitch-gui "Streamlink Twitch GUI AUR source package"
 [aur-mirror-repo]: https://github.com/streamlink/streamlink-twitch-gui-aur "Streamlink Twitch GUI AUR mirror repo"
 [nixos-streamlink-twitch-gui-bin]: https://search.nixos.org/packages?show=streamlink-twitch-gui-bin&query=streamlink "Streamlink Twitch GUI NixOS binary package"
-[eopkg-streamlink-twitch-gui]: https://github.com/solus-packages/streamlink-twitch-gui "Streamlink Twitch GUI Solus package"
+[eopkg-streamlink-twitch-gui]: https://github.com/getsolus/packages/tree/main/packages/s/streamlink-twitch-gui "Streamlink Twitch GUI Solus package"
 [custom-package-repo-experiment]: https://github.com/streamlink/streamlink-twitch-gui/pull/319
 [appimagelauncher]: https://github.com/TheAssassin/AppImageLauncher
