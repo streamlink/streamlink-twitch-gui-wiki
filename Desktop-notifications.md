@@ -41,11 +41,6 @@ This method may fall back to Chromium rich notifications (see below).
 Third party notification service for Windows, macOS and Linux. Needs to be running on the localhost and default port.
 
 
-#### Chromium rich notifications (Windows 7)
-
-Chromium's custom, non-native notifications which are rendered by the application itself.
-
-
 [snoretoast]: https://github.com/KDE/snoretoast
 [windows]: https://support.microsoft.com/en-us/help/10761/windows-10-change-notification-action-settings
 [macos]: https://support.apple.com/en-us/HT204079
