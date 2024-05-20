@@ -128,8 +128,8 @@ Streamlink Twitch GUI is built on top of the NW.js platform, a Node.js powered v
 
 - [NW.js documentation](https://docs.nwjs.io/en/latest/References/Command%20Line%20Options/)
 - [Peter Beverloo's List of Chromium Command Line Switches](https://peter.sh/experiments/chromium-command-line-switches/)
-- [NW.js/Chromium source code (nw42-log:/chrome/common/chrome_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/chrome/common/chrome_switches.cc)
-- [NW.js/Chromium source code (nw42-log:/content/public/common/content_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw42-log/content/public/common/content_switches.cc)
+- [NW.js/Chromium source code (nw83:/chrome/common/chrome_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw83/chrome/common/chrome_switches.cc)
+- [NW.js/Chromium source code (nw83:/content/public/common/content_switches.cc)](https://github.com/nwjs/chromium.src/blob/nw83/content/public/common/content_switches.cc)
 
 #### User data directory
 
