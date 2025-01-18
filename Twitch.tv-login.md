@@ -17,6 +17,4 @@ This method needs to be enabled first by activating the advanced settings in the
 
 ### While being logged in
 
-If not disabled in the settings menu, the stored OAuth token is also being used by Streamlink to authenticate your account while launching streams.
-
 Being logged in also enables [[desktop notifications|desktop-notifications]].
